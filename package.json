@@ -1,0 +1,110 @@
+{
+  "name": "use-stepper",
+  "version": "0.0.0-semantically-released",
+  "description": "React hook to manage a numeric stepper",
+  "keywords": [
+    "react",
+    "hook",
+    "hooks",
+    "stepper",
+    "counter",
+    "increment",
+    "decrement",
+    "input"
+  ],
+  "author": {
+    "name": "Justin Hall",
+    "email": "justin.r.hall@gmail.com"
+  },
+  "contributors": [],
+  "license": "MIT",
+  "source": "src/use-stepper.ts",
+  "main": "dist/use-stepper.js",
+  "module": "dist/use-stepper.m.js",
+  "unpkg": "dist/use-stepper.umd.js",
+  "types": "dist/use-stepper.d.ts",
+  "files": [
+    "dist",
+    "!dist/*.test.*"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/wKovacs64/use-stepper.git"
+  },
+  "bugs": {
+    "url": "https://github.com/wKovacs64/use-stepper/issues"
+  },
+  "homepage": "https://github.com/wKovacs64/use-stepper",
+  "scripts": {
+    "build": "microbundle",
+    "clean": "rimraf dist coverage",
+    "check-types": "tsc",
+    "cm": "git-cz",
+    "develop": "microbundle watch",
+    "format": "prettier --write \"**/*.{js,ts,tsx,html,json,md,yml,yaml}\"",
+    "lint": "eslint --ext \".js,.ts,.tsx\" .",
+    "prebuild": "npm run --silent clean",
+    "prepare": "npm run --silent build",
+    "prepublishOnly": "npm-run-all --silent --sequential lint check-types test:ci",
+    "test": "jest --watch --onlyChanged",
+    "test:ci": "jest --coverage",
+    "validate": "npm-run-all --silent --sequential lint check-types build"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/core": "7.4.3",
+    "@babel/preset-env": "7.4.3",
+    "@babel/preset-react": "7.0.0",
+    "@babel/preset-typescript": "7.3.3",
+    "@commitlint/cli": "7.5.2",
+    "@commitlint/config-conventional": "7.5.0",
+    "@types/jest": "24.0.11",
+    "@types/jsdom": "12.2.3",
+    "@types/node": "11.13.5",
+    "@types/react": "16.8.14",
+    "@types/react-dom": "16.8.4",
+    "@typescript-eslint/eslint-plugin": "1.6.0",
+    "@wkovacs64/eslint-config-ts-react": "2.1.0",
+    "babel-jest": "24.7.1",
+    "codecov": "3.3.0",
+    "commitizen": "3.1.1",
+    "cross-env": "5.2.0",
+    "cz-conventional-changelog": "2.1.0",
+    "doctoc": "1.4.0",
+    "eslint": "5.16.0",
+    "eslint-plugin-import": "2.17.2",
+    "eslint-plugin-jest": "22.4.1",
+    "eslint-plugin-jsx-a11y": "6.2.1",
+    "eslint-plugin-react": "7.12.4",
+    "eslint-plugin-react-hooks": "1.6.0",
+    "husky": "1.3.1",
+    "jest": "24.7.1",
+    "jest-dom": "3.1.3",
+    "jest-watch-typeahead": "0.3.0",
+    "lint-staged": "8.1.5",
+    "microbundle": "0.11.0",
+    "npm-run-all": "4.1.5",
+    "prettier": "1.17.0",
+    "react": "16.8.6",
+    "react-dom": "16.8.6",
+    "react-hooks-testing-library": "0.5.0",
+    "react-test-renderer": "16.8.6",
+    "react-testing-library": "6.1.2",
+    "rimraf": "2.6.3",
+    "rollup": "1.10.1",
+    "semantic-release": "15.13.3",
+    "typescript": "3.4.4"
+  },
+  "peerDependencies": {
+    "react": ">= 16.8.0"
+  }
+}
