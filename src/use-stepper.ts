@@ -24,7 +24,6 @@ export interface Options {
   step?: number;
   min?: number;
   max?: number;
-  onNewValue?: (newValue: number) => void;
   enableReinitialize?: boolean;
   stateReducer?: (state: State, action: Action) => State;
 }
@@ -72,7 +71,6 @@ function useStepper({
   step = 1,
   min = -Number.MAX_VALUE,
   max = Number.MAX_VALUE,
-  onNewValue = undefined,
   enableReinitialize = false,
   stateReducer: userReducer,
 }: Options = {}): ReturnValue {
@@ -223,14 +221,6 @@ function useStepper({
       onChange: callAll(handleChange, onChange),
     };
   };
-
-  // Notify the caller when the value has been updated to a valid number
-  React.useEffect(() => {
-    const numericValue = parseFloat(value);
-    if (typeof onNewValue === 'function' && !Number.isNaN(numericValue)) {
-      onNewValue(numericValue);
-    }
-  }, [onNewValue, value]);
 
   // If the `defaultValue` parameter changes and the current value is still the
   // original default value (e.g. the user hasn't changed it), update the value

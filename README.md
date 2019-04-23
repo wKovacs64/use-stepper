@@ -38,7 +38,6 @@ your application.
   - [step](#step)
   - [min](#min)
   - [max](#max)
-  - [onNewValue](#onnewvalue)
 - [Advanced Options](#advanced-options)
   - [enableReinitialize](#enablereinitialize)
   - [stateReducer](#statereducer)
@@ -120,15 +119,6 @@ The minimum value allowed.
 > `number` | optional, default: `Number.MAX_VALUE`
 
 The maximum value allowed.
-
-### onNewValue
-
-> `function(value: number)` | optional, no useful default
-
-A callback function that gets called with the latest _valid_ value when it
-changes (e.g. it will not be called when the input value is manually changed to
-"-" because that is not a number, but it will be called when the input is
-changed to "-4" because that is a valid number).
 
 ## Advanced Options
 
