@@ -34,7 +34,7 @@
   "bugs": {
     "url": "https://github.com/wKovacs64/use-stepper/issues"
   },
-  "homepage": "https://github.com/wKovacs64/use-stepper",
+  "homepage": "https://github.com/wKovacs64/use-stepper#readme",
   "scripts": {
     "build": "microbundle",
     "clean": "rimraf dist coverage",
