@@ -72,7 +72,7 @@ function useStepper({
   step = 1,
   min = -Number.MAX_VALUE,
   max = Number.MAX_VALUE,
-  onNewValue = () => {},
+  onNewValue = undefined,
   enableReinitialize = false,
   stateReducer: userReducer,
 }: Options = {}): ReturnValue {
@@ -227,7 +227,7 @@ function useStepper({
   // Notify the caller when the value has been updated to a valid number
   React.useEffect(() => {
     const numericValue = parseFloat(value);
-    if (!Number.isNaN(numericValue)) {
+    if (typeof onNewValue === 'function' && !Number.isNaN(numericValue)) {
       onNewValue(numericValue);
     }
   }, [onNewValue, value]);
