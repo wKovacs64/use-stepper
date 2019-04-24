@@ -244,7 +244,7 @@ function useStepper({
   ]);
 
   return {
-    value: String(value),
+    value,
     setValue: setValueClosestTo,
     increment: handleIncrement,
     decrement: handleDecrement,
