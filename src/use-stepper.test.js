@@ -218,8 +218,7 @@ describe('useStepper', () => {
         }
         case useStepper.actionTypes.setValue: {
           if (action.payload !== undefined && action.payload !== state.value) {
-            const newValue = parseFloat(action.payload);
-            return { value: newValue };
+            return { value: String(action.payload) };
           }
           return state;
         }
