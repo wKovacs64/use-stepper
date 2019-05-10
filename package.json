@@ -72,7 +72,7 @@
     "@types/node": "11.13.10",
     "@types/react": "16.8.17",
     "@types/react-dom": "16.8.4",
-    "@typescript-eslint/eslint-plugin": "1.7.0",
+    "@typescript-eslint/eslint-plugin": "1.8.0",
     "@wkovacs64/eslint-config-ts-react": "2.1.0",
     "babel-jest": "24.8.0",
     "codecov": "3.4.0",
