@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types, import/no-extraneous-dependencies */
 import React from 'react';
-import { render, fireEvent } from 'react-testing-library';
+import { render, fireEvent } from '@testing-library/react';
 import { renderHook, act } from 'react-hooks-testing-library';
 import useStepper from './use-stepper';
 
