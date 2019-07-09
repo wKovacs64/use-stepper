@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types, import/no-extraneous-dependencies */
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
-import { renderHook, act } from 'react-hooks-testing-library';
+import { renderHook, act } from '@testing-library/react-hooks';
 import useStepper from './use-stepper';
 
 function Counter(props) {
