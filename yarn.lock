@@ -1610,40 +1610,40 @@
     lodash.unescape "4.0.1"
     semver "5.5.0"
 
-"@wkovacs64/eslint-config-react@^2.2.1":
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/@wkovacs64/eslint-config-react/-/eslint-config-react-2.2.1.tgz#3ca236ef1f66c7110c8672476505e0e169c2d4d0"
-  integrity sha512-/xu34PoSVy0/q2NYYOTY9FYwJ9/Pa8K2pBcC/MlALsAY0BTvZl1amtRTnKRazbMHj7OLCBBSI4gaDX9/+/5D8Q==
+"@wkovacs64/eslint-config-react@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@wkovacs64/eslint-config-react/-/eslint-config-react-3.0.0.tgz#1837eb8fd446b434186908c81193cf346f3b2fd8"
+  integrity sha512-INBzwP2btttOSgc5JHqpAVTJajo53BeeTszW/n68xMoi6JgLnYbPv6luY9IfEgUe+anyvUdoWa+f+VTi4rTh7w==
   dependencies:
-    "@wkovacs64/eslint-config" "^5.0.0"
+    "@wkovacs64/eslint-config" "^6.0.0"
     eslint-config-airbnb "^17.1.0"
-    eslint-config-prettier "^5.0.0"
+    eslint-config-prettier "^6.0.0"
 
-"@wkovacs64/eslint-config-ts-react@2.1.2":
-  version "2.1.2"
-  resolved "https://registry.yarnpkg.com/@wkovacs64/eslint-config-ts-react/-/eslint-config-ts-react-2.1.2.tgz#5a03c0d3049716420df4b148cf84a6ce06c7acd9"
-  integrity sha512-bKX0eLHO2IZr2FkWczgDiBRFwV286TPL+R1BWvdYcvf4y254FeOhT7gER86QHkRGsmh54Qaf5xsCzBnZIfBQeg==
+"@wkovacs64/eslint-config-ts-react@3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@wkovacs64/eslint-config-ts-react/-/eslint-config-ts-react-3.0.0.tgz#ea64245c3d6a4e178be81b4a27b2ba449b931648"
+  integrity sha512-Ho7E7aHYVj/p40u4RReUwFxzuCqwNDJr0hcMScvAClLp2Qwat4VNKt2ghd6TEbZ2ijRgdTG+efiWDsof6P+QNQ==
   dependencies:
-    "@wkovacs64/eslint-config-react" "^2.2.1"
-    "@wkovacs64/eslint-config-ts" "^3.0.2"
+    "@wkovacs64/eslint-config-react" "^3.0.0"
+    "@wkovacs64/eslint-config-ts" "^4.0.0"
 
-"@wkovacs64/eslint-config-ts@^3.0.2":
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/@wkovacs64/eslint-config-ts/-/eslint-config-ts-3.0.2.tgz#f4116b62c03118030231f3fa8a52a30e95c548f7"
-  integrity sha512-XQYBQvoLIfIaJtJwQA1Co6UGuj3MGpkKXwz7yEn3+v/9ToY9MhIFweSoGdO60qpgzbxMn9RRyNXPjPbZFmeadg==
+"@wkovacs64/eslint-config-ts@^4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@wkovacs64/eslint-config-ts/-/eslint-config-ts-4.0.0.tgz#3994b2abe10a675b98bfcdf5ee6e6ec86e9af7f5"
+  integrity sha512-6UXrqZ1UYOwEco5MvNSJJjzWEpTuH/KWngup0R76CncAfinnGpsF4HXayF5hIs7d+KA5otuf3Cmvczhu6bWd9g==
   dependencies:
     "@typescript-eslint/parser" "^1.11.0"
-    "@wkovacs64/eslint-config" "^5.0.0"
-    eslint-config-prettier "^5.0.0"
+    "@wkovacs64/eslint-config" "^6.0.0"
+    eslint-config-prettier "^6.0.0"
 
-"@wkovacs64/eslint-config@^5.0.0":
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/@wkovacs64/eslint-config/-/eslint-config-5.0.0.tgz#b4793c6902e5f151cde9617a332cccecac3124f0"
-  integrity sha512-9VOKN1lLJJvPbRLam3ViUEA9alA1hXrBI+r3PGib7xcElJDokzmD0/D8dWGV/fbdhmKoSBB+x6h/udQmAPCZ0A==
+"@wkovacs64/eslint-config@^6.0.0":
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/@wkovacs64/eslint-config/-/eslint-config-6.0.0.tgz#e7c97e3050f119889b9d6e855ec3c11f99dd9ed8"
+  integrity sha512-+KK2aa2XYLeqx2hIiWVjiz21tq3BHoJ4S9Bej3GcgbDjbDklHpprmEUDJGnLMCmO/ma14gFv9GBr54ZY8XIn3w==
   dependencies:
     babel-eslint "^10.0.1"
     eslint-config-airbnb-base "^13.1.0"
-    eslint-config-prettier "^5.0.0"
+    eslint-config-prettier "^6.0.0"
 
 JSONStream@^1.0.4, JSONStream@^1.3.4, JSONStream@^1.3.5:
   version "1.3.5"
@@ -3890,10 +3890,10 @@ eslint-config-airbnb@^17.1.0:
     object.assign "^4.1.0"
     object.entries "^1.0.4"
 
-eslint-config-prettier@^5.0.0:
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-5.0.0.tgz#f7a94b2b8ae7cbf25842c36fa96c6d32cd0a697c"
-  integrity sha512-c17Aqiz5e8LEqoc/QPmYnaxQFAHTx2KlCZBPxXXjEMmNchOLnV/7j0HoPZuC+rL/tDC9bazUYOKJW9bOhftI/w==
+eslint-config-prettier@^6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-6.0.0.tgz#f429a53bde9fc7660e6353910fd996d6284d3c25"
+  integrity sha512-vDrcCFE3+2ixNT5H83g28bO/uYAwibJxerXPj+E7op4qzBCsAV36QfvdAyVOoNxKAH2Os/e01T/2x++V0LPukA==
   dependencies:
     get-stdin "^6.0.0"
 

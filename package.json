@@ -76,7 +76,7 @@
     "@types/react": "16.8.23",
     "@types/react-dom": "16.8.4",
     "@typescript-eslint/eslint-plugin": "1.12.0",
-    "@wkovacs64/eslint-config-ts-react": "2.1.2",
+    "@wkovacs64/eslint-config-ts-react": "3.0.0",
     "babel-jest": "24.8.0",
     "codecov": "3.5.0",
     "commitizen": "4.0.3",
