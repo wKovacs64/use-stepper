@@ -74,7 +74,7 @@
     "@types/jsdom": "12.2.4",
     "@types/node": "11.13.18",
     "@types/react": "16.8.23",
-    "@types/react-dom": "16.8.4",
+    "@types/react-dom": "16.8.5",
     "babel-jest": "24.8.0",
     "codecov": "3.5.0",
     "commitizen": "4.0.3",
