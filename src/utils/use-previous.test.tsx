@@ -5,11 +5,11 @@ import usePrevious from './use-previous';
 
 describe('usePrevious', () => {
   it('returns the value of a variable from the previous render', () => {
-    function Comp() {
+    function Comp(): React.ReactElement {
       const [currentValue, setCurrentValue] = React.useState(0);
       const previousValue = usePrevious(currentValue);
 
-      function increment() {
+      function increment(): void {
         setCurrentValue(value => value + 1);
       }
 
