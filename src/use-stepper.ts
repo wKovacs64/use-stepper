@@ -61,7 +61,7 @@ export interface ReturnValue {
 }
 
 export interface UseStepper {
-  (options: Options): ReturnValue;
+  (options?: Options): ReturnValue;
   actionTypes: typeof actionTypes;
   defaultReducer: (state: State, action: Action) => State;
 }
