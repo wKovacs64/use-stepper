@@ -2,9 +2,9 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import { renderHook, act } from '@testing-library/react-hooks';
-import useStepper from './use-stepper';
+import useStepper, { Options, State, Action } from './use-stepper';
 
-function Counter(props) {
+const Counter: React.FunctionComponent<Options> = props => {
   const {
     setValue,
     getFormProps,
@@ -25,17 +25,17 @@ function Counter(props) {
       <button
         data-testid="set-value-to-42"
         type="button"
-        onClick={() => setValue(42)}
+        onClick={() => setValue('42')}
       >
         set value to 42
       </button>
     </form>
   );
-}
+};
 
-function renderForm(options = {}) {
+function renderForm(options: Options = {}): any {
   const renderResult = render(<Counter {...options} />);
-  const { value } = renderResult.getByTestId('input');
+  const { value } = renderResult.getByTestId('input') as HTMLInputElement;
   return { value, ...renderResult };
 }
 
@@ -89,9 +89,9 @@ describe('useStepper', () => {
     );
 
     expect(result.current.value).toBe('1');
-    act(() => result.current.setValue(2));
+    act(() => result.current.setValue('2'));
     expect(result.current.value).toBe('2');
-    act(() => result.current.setValue(3));
+    act(() => result.current.setValue('3'));
     expect(result.current.value).toBe('2');
   });
 
@@ -185,15 +185,16 @@ describe('useStepper', () => {
   });
 
   it('accepts a custom reducer', () => {
-    const cents = str => str.split('.').length === 2;
-    const dollars = str => str.split('.')[0];
-    const getPreviousEvenDollar = value => {
+    const cents = (str: string): boolean => str.split('.').length === 2;
+    const dollars = (str: string): string => str.split('.')[0];
+    const getPreviousEvenDollar = (value: number): string => {
       const str = String(value);
       return cents(str) ? dollars(str) : dollars(String(value - 1));
     };
-    const getNextEvenDollar = value => dollars(String(value + 1));
+    const getNextEvenDollar = (value: number): string =>
+      dollars(String(value + 1));
 
-    function dollarReducer(state, action) {
+    const dollarReducer = (state: State, action: Action): State => {
       const currentNumericValue = parseFloat(state.value);
       switch (action.type) {
         case useStepper.actionTypes.increment: {
@@ -225,7 +226,7 @@ describe('useStepper', () => {
         default:
           return useStepper.defaultReducer(state, action);
       }
-    }
+    };
 
     const { result } = renderHook(() =>
       useStepper({ stateReducer: dollarReducer }),
