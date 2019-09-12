@@ -1,8 +1,7 @@
-/* eslint-disable react/prop-types, import/no-extraneous-dependencies */
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import { renderHook, act } from '@testing-library/react-hooks';
-import useStepper, { Options, State, Action } from './use-stepper';
+import useStepper, { Options, State, Action } from '../use-stepper';
 
 const Counter: React.FunctionComponent<Options> = props => {
   const {
