@@ -1,5 +1,10 @@
 import React from 'react';
-import { render, fireEvent, RenderResult } from '@testing-library/react';
+import {
+  render,
+  screen,
+  fireEvent,
+  RenderResult,
+} from '@testing-library/react';
 import { renderHook, act } from '@testing-library/react-hooks';
 import useStepper, { Options, State, Action } from '../use-stepper';
 
@@ -34,7 +39,7 @@ const Counter: React.FunctionComponent<Options> = props => {
 
 function renderForm(options: Options = {}): { value: string } & RenderResult {
   const renderResult = render(<Counter {...options} />);
-  const { value } = renderResult.getByTestId('input') as HTMLInputElement;
+  const { value } = screen.getByTestId('input') as HTMLInputElement;
   return { value, ...renderResult };
 }
 
@@ -113,8 +118,8 @@ describe('useStepper', () => {
   });
 
   it('selects input value on focus', () => {
-    const { getByTestId } = renderForm();
-    const input = getByTestId('input') as HTMLInputElement;
+    renderForm();
+    const input = screen.getByTestId('input') as HTMLInputElement;
 
     expect(input.selectionStart).toBe(0);
     expect(input.selectionEnd).toBe(0);
@@ -129,8 +134,8 @@ describe('useStepper', () => {
     const min = 1;
     const max = 10;
     const defaultValue = 5;
-    const { getByTestId } = renderForm({ defaultValue, min, max });
-    const input = getByTestId('input') as HTMLInputElement;
+    renderForm({ defaultValue, min, max });
+    const input = screen.getByTestId('input') as HTMLInputElement;
 
     expect(input.value).toBe(String(defaultValue));
 
@@ -154,9 +159,9 @@ describe('useStepper', () => {
   });
 
   it('blurs input on submit', () => {
-    const { getByTestId } = renderForm();
-    const input = getByTestId('input');
-    const form = getByTestId('form');
+    renderForm();
+    const input = screen.getByTestId('input');
+    const form = screen.getByTestId('form');
 
     input.focus();
     expect(input).toHaveFocus();
