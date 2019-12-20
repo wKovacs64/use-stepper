@@ -96,7 +96,7 @@
     "rimraf": "3.0.0",
     "rollup": "1.27.13",
     "semantic-release": "15.13.31",
-    "typescript": "3.7.3"
+    "typescript": "3.7.4"
   },
   "peerDependencies": {
     "react": ">= 16.8.0"
