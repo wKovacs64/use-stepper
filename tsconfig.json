@@ -8,11 +8,6 @@
     "noEmit": true,
     "strict": true,
     "stripInternal": true,
-    "types": [
-      "node",
-      "jsdom",
-      "jest",
-      "@testing-library/jest-dom/extend-expect"
-    ]
+    "types": ["node", "jsdom", "jest", "@testing-library/jest-dom"]
   }
 }
