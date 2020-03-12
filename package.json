@@ -94,7 +94,7 @@
     "react-dom": "16.13.0",
     "react-test-renderer": "16.13.0",
     "rimraf": "3.0.2",
-    "rollup": "2.0.3",
+    "rollup": "2.0.4",
     "semantic-release": "17.0.4",
     "typescript": "3.8.3"
   },
