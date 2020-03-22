@@ -78,7 +78,7 @@ function useStepper({
   const inputRef = React.useRef<HTMLInputElement>(null);
 
   const validValueClosestTo: (newValue: number) => string = React.useCallback(
-    newValue => {
+    (newValue) => {
       return String(Math.min(max, Math.max(newValue, min)));
     },
     [max, min],
@@ -137,7 +137,7 @@ function useStepper({
     initialState,
   );
 
-  const setValue = React.useCallback(newValue => {
+  const setValue = React.useCallback((newValue) => {
     dispatch({
       type: actionTypes.setValue,
       payload: newValue,
@@ -145,7 +145,7 @@ function useStepper({
   }, []);
 
   const setValueClosestTo = React.useCallback(
-    newValue => {
+    (newValue) => {
       setValue(validValueClosestTo(newValue));
     },
     [validValueClosestTo, setValue],

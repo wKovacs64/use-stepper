@@ -9,7 +9,7 @@ describe('usePrevious', () => {
       const previousValue = usePrevious(currentValue);
 
       function increment(): void {
-        setCurrentValue(value => value + 1);
+        setCurrentValue((value) => value + 1);
       }
 
       return (

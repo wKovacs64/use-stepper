@@ -1,7 +1,7 @@
 const mergeRefs = <T>(
   ...refs: Array<React.LegacyRef<T> | React.MutableRefObject<T> | undefined>
 ): ((ref: T) => void) => (ref: T): void => {
-  refs.forEach(resolvableRef => {
+  refs.forEach((resolvableRef) => {
     if (typeof resolvableRef === 'function') {
       resolvableRef(ref);
     } else if (typeof resolvableRef === 'object' && resolvableRef !== null) {

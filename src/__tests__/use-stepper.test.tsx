@@ -8,7 +8,7 @@ import {
 import { renderHook, act } from '@testing-library/react-hooks';
 import useStepper, { Options, State, Action } from '../use-stepper';
 
-const Counter: React.FunctionComponent<Options> = props => {
+const Counter: React.FunctionComponent<Options> = (props) => {
   const {
     setValue,
     getFormProps,
@@ -249,7 +249,7 @@ describe('useStepper', () => {
 
   describe('enableReinitialize', () => {
     it('true: value is updated to new default if defaultValue changes and value has not been modified', () => {
-      const { result, rerender } = renderHook(opts => useStepper(opts), {
+      const { result, rerender } = renderHook((opts) => useStepper(opts), {
         initialProps: { enableReinitialize: true, defaultValue: 33 },
       });
 
@@ -259,7 +259,7 @@ describe('useStepper', () => {
     });
 
     it('true: value is not updated to new default if defaultValue changes and value has been modified', () => {
-      const { result, rerender } = renderHook(opts => useStepper(opts), {
+      const { result, rerender } = renderHook((opts) => useStepper(opts), {
         initialProps: { enableReinitialize: true, defaultValue: 33 },
       });
 
@@ -271,7 +271,7 @@ describe('useStepper', () => {
     });
 
     it('false: value remains unchanged if defaultValue changes', () => {
-      const { result, rerender } = renderHook(opts => useStepper(opts), {
+      const { result, rerender } = renderHook((opts) => useStepper(opts), {
         initialProps: { defaultValue: 33 },
       });
 
