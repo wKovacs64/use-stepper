@@ -121,8 +121,8 @@ describe('useStepper', () => {
     renderForm();
     const input = screen.getByTestId('input') as HTMLInputElement;
 
-    expect(input.selectionStart).toBe(0);
-    expect(input.selectionEnd).toBe(0);
+    expect(input.selectionStart).toBe(input.value.length);
+    expect(input.selectionEnd).toBe(input.value.length);
 
     fireEvent.focus(input);
 
