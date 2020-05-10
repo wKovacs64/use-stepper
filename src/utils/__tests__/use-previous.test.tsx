@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { render, fireEvent, screen } from '@testing-library/react';
 import usePrevious from '../use-previous';
 
 describe('usePrevious', () => {
@@ -23,14 +23,14 @@ describe('usePrevious', () => {
       );
     }
 
-    const { getByTestId, getByText } = render(<Comp />);
-    expect(getByTestId('previous').textContent).toBe('');
-    expect(getByTestId('current').textContent).toBe('0');
-    fireEvent.click(getByText('increment'));
-    expect(getByTestId('previous').textContent).toBe('0');
-    expect(getByTestId('current').textContent).toBe('1');
-    fireEvent.click(getByText('increment'));
-    expect(getByTestId('previous').textContent).toBe('1');
-    expect(getByTestId('current').textContent).toBe('2');
+    render(<Comp />);
+    expect(screen.getByTestId('previous')).toHaveTextContent('');
+    expect(screen.getByTestId('current')).toHaveTextContent('0');
+    fireEvent.click(screen.getByText('increment'));
+    expect(screen.getByTestId('previous')).toHaveTextContent('0');
+    expect(screen.getByTestId('current')).toHaveTextContent('1');
+    fireEvent.click(screen.getByText('increment'));
+    expect(screen.getByTestId('previous')).toHaveTextContent('1');
+    expect(screen.getByTestId('current')).toHaveTextContent('2');
   });
 });
