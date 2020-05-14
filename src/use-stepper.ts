@@ -159,7 +159,7 @@ function useStepper({
     dispatch({ type: actionTypes.decrement });
   };
 
-  const handleFocus = (): void => {
+  const handleFocus = () => {
     /* istanbul ignore else: not worth testing */
     if (inputRef.current !== null) {
       inputRef.current.value = value;
@@ -167,17 +167,15 @@ function useStepper({
     }
   };
 
-  const handleBlur = (): void => {
+  const handleBlur = () => {
     dispatch({ type: actionTypes.coerce });
   };
 
-  const handleChange: React.ChangeEventHandler<HTMLInputElement> = (
-    ev,
-  ): void => {
+  const handleChange: React.ChangeEventHandler<HTMLInputElement> = (ev) => {
     setValue(ev.target.value);
   };
 
-  const handleSubmit: React.FormEventHandler = (ev): void => {
+  const handleSubmit: React.FormEventHandler = (ev) => {
     ev.preventDefault();
     /* istanbul ignore else: not worth testing */
     if (inputRef.current !== null) {
