@@ -60,27 +60,59 @@ describe('useStepper', () => {
 
   it('returns the correct properties', () => {
     const { result } = renderHook(() => useStepper());
-    expect(result.current).toMatchSnapshot();
+    expect(result.current).toMatchInlineSnapshot(`
+      Object {
+        "decrement": [Function],
+        "getDecrementProps": [Function],
+        "getFormProps": [Function],
+        "getIncrementProps": [Function],
+        "getInputProps": [Function],
+        "increment": [Function],
+        "setValue": [Function],
+        "value": "0",
+      }
+    `);
   });
 
   it('provides the correct form props in getFormProps', () => {
     const { result } = renderHook(() => useStepper());
-    expect(result.current.getFormProps()).toMatchSnapshot();
+    expect(result.current.getFormProps()).toMatchInlineSnapshot(`
+      Object {
+        "onSubmit": [Function],
+      }
+    `);
   });
 
   it('provides the correct input props in getInputProps', () => {
     const { result } = renderHook(() => useStepper());
-    expect(result.current.getInputProps()).toMatchSnapshot();
+    expect(result.current.getInputProps()).toMatchInlineSnapshot(`
+      Object {
+        "onBlur": [Function],
+        "onChange": [Function],
+        "onFocus": [Function],
+        "ref": [Function],
+        "type": "text",
+        "value": "0",
+      }
+    `);
   });
 
   it('provides the correct decrement props in getDecrementProps', () => {
     const { result } = renderHook(() => useStepper());
-    expect(result.current.getDecrementProps()).toMatchSnapshot();
+    expect(result.current.getDecrementProps()).toMatchInlineSnapshot(`
+      Object {
+        "onClick": [Function],
+      }
+    `);
   });
 
   it('provides the correct increment props in getIncrementProps', () => {
     const { result } = renderHook(() => useStepper());
-    expect(result.current.getIncrementProps()).toMatchSnapshot();
+    expect(result.current.getIncrementProps()).toMatchInlineSnapshot(`
+      Object {
+        "onClick": [Function],
+      }
+    `);
   });
 
   it('constrains setValue calls to min and max', () => {
