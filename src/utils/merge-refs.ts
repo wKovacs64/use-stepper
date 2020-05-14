@@ -1,14 +1,19 @@
-const mergeRefs = <T>(
-  ...refs: Array<React.LegacyRef<T> | React.MutableRefObject<T> | undefined>
-): ((ref: T) => void) => (ref: T): void => {
-  refs.forEach((resolvableRef) => {
-    if (typeof resolvableRef === 'function') {
-      resolvableRef(ref);
-    } else if (typeof resolvableRef === 'object' && resolvableRef !== null) {
-      // eslint-disable-next-line no-param-reassign
-      (resolvableRef as React.MutableRefObject<T>).current = ref;
-    }
-  });
-};
+type Ref<T> = React.LegacyRef<T> | React.MutableRefObject<T> | undefined;
 
-export default mergeRefs;
+function isMutableRefObject<T>(ref: Ref<T>): ref is React.MutableRefObject<T> {
+  return typeof ref === 'object' && ref !== null && 'current' in ref;
+}
+
+export default function mergeRefs<T>(...refs: Array<Ref<T>>): (ref: T) => void {
+  function assignSingleRef(ref: T) {
+    refs.forEach((resolvableRef) => {
+      if (typeof resolvableRef === 'function') {
+        resolvableRef(ref);
+      } else if (isMutableRefObject(resolvableRef)) {
+        // eslint-disable-next-line no-param-reassign
+        resolvableRef.current = ref;
+      }
+    });
+  }
+  return assignSingleRef;
+}
