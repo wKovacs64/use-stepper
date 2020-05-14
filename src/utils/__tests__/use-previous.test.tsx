@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, fireEvent, screen } from '@testing-library/react';
-import usePrevious from '../use-previous';
+import { usePrevious } from '../use-previous';
 
 describe('usePrevious', () => {
   it('returns the value of a variable from the previous render', () => {

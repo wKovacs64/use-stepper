@@ -1,5 +1,5 @@
 import React from 'react';
-import mergeRefs from '../merge-refs';
+import { mergeRefs } from '../merge-refs';
 
 describe('mergeRefs', () => {
   it('merges multiple React ref objects', () => {
