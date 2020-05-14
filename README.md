@@ -257,8 +257,8 @@ value.
 
 ## Other Solutions
 
-- [`react-stepper-primitive`][react-stepper-primitive] by Andrew Joslin (to
-  which I have contributed) was the prime source of inspiration for this hook.
+- [`react-stepper-primitive`][react-stepper-primitive] by Andrew Joslin was the
+  prime source of inspiration for this hook.
 
 If you know of any others, please send a pull request to add them here.
 
