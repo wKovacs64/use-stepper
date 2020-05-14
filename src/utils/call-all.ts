@@ -1,8 +1,8 @@
 type CallbackFn = (...args: Array<any>) => void;
 
 export function callAll(...fns: Array<CallbackFn | undefined>): CallbackFn {
-  function callAllCallbackFnsWithOriginalArgs(...args: Array<any>) {
-    fns.forEach((fn) => fn && fn(...args));
-  }
+  const callAllCallbackFnsWithOriginalArgs: CallbackFn = (...args) => {
+    fns.forEach((fn) => typeof fn === 'function' && fn(...args));
+  };
   return callAllCallbackFnsWithOriginalArgs;
 }
