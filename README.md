@@ -253,7 +253,7 @@ value.
 | ----------- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `increment` | function()    | increments the value                                                                                                                                           |
 | `decrement` | function()    | decrements the value                                                                                                                                           |
-| `setValue`  | function(num) | sets the value (note: the argument passed will be coerced to a valid value within the specified range or fall back to the default value if not a valid number) |
+| `setValue`  | function(str) | sets the value (note: the argument passed will be coerced to a valid value within the specified range or fall back to the default value if not a valid number) |
 
 ## Other Solutions
 
