@@ -1,4 +1,4 @@
-import callAll from '../call-all';
+import { callAll } from '../call-all';
 
 describe('callAll', () => {
   it('calls all functions passed in with the same arguments', () => {

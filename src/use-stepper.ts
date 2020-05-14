@@ -1,7 +1,5 @@
 import React from 'react';
-import mergeRefs from './utils/merge-refs';
-import callAll from './utils/call-all';
-import usePrevious from './utils/use-previous';
+import { callAll, mergeRefs, usePrevious } from './utils';
 
 const actionTypes = {
   increment: 'increment',
