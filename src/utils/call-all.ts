@@ -1,6 +1,10 @@
-const callAll = (
-  ...fns: Array<((...args: Array<any>) => unknown) | undefined>
-): ((...args: Array<any>) => void) => (...args: Array<any>) =>
-  fns.forEach((fn) => fn && fn(...args));
+type CallbackFn = (...args: Array<any>) => void;
 
-export default callAll;
+export default function callAll(
+  ...fns: Array<CallbackFn | undefined>
+): CallbackFn {
+  function callAllCallbackFnsWithOriginalArgs(...args: Array<any>) {
+    fns.forEach((fn) => fn && fn(...args));
+  }
+  return callAllCallbackFnsWithOriginalArgs;
+}
