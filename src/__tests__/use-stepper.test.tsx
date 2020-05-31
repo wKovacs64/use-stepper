@@ -1,10 +1,6 @@
 import React from 'react';
-import {
-  render,
-  screen,
-  fireEvent,
-  RenderResult,
-} from '@testing-library/react';
+import { render, screen, RenderResult } from '@testing-library/react';
+import user from '@testing-library/user-event';
 import { renderHook, act } from '@testing-library/react-hooks';
 import useStepper, { Options, State, Action } from '../use-stepper';
 
@@ -33,6 +29,7 @@ const Counter: React.FunctionComponent<Options> = (props) => {
       >
         set value to 42
       </button>
+      <button type="submit">submit</button>
     </form>
   );
 };
@@ -156,13 +153,13 @@ describe('useStepper', () => {
     expect(input.selectionStart).toBe(input.value.length);
     expect(input.selectionEnd).toBe(input.value.length);
 
-    fireEvent.focus(input);
+    user.click(input);
 
     expect(input.selectionStart).toBe(0);
     expect(input.selectionEnd).toBe(input.value.length);
   });
 
-  it('updates current value on blur', () => {
+  it('updates current value on blur', async () => {
     const min = 1;
     const max = 10;
     const defaultValue = 5;
@@ -171,21 +168,24 @@ describe('useStepper', () => {
 
     expect(input.value).toBe(String(defaultValue));
 
-    fireEvent.focus(input);
-    fireEvent.change(input, { target: { value: max + 1 } });
-    fireEvent.blur(input);
+    user.click(input);
+    user.clear(input);
+    await user.type(input, String(max + 1));
+    user.tab();
 
     expect(input.value).toBe(String(max));
 
-    fireEvent.focus(input);
-    fireEvent.change(input, { target: { value: min - 1 } });
-    fireEvent.blur(input);
+    user.click(input);
+    user.clear(input);
+    await user.type(input, String(min - 1));
+    user.tab();
 
     expect(input.value).toBe(String(min));
 
-    fireEvent.focus(input);
-    fireEvent.change(input, { target: { value: '-' } });
-    fireEvent.blur(input);
+    user.click(input);
+    user.clear(input);
+    await user.type(input, '-');
+    user.tab();
 
     expect(input.value).toBe(String(defaultValue));
   });
@@ -193,12 +193,11 @@ describe('useStepper', () => {
   it('blurs input on submit', () => {
     renderForm();
     const input = screen.getByTestId('input');
-    const form = screen.getByTestId('form');
 
     input.focus();
     expect(input).toHaveFocus();
 
-    fireEvent.submit(form);
+    user.click(screen.getByRole('button', { name: /submit/i }));
 
     expect(input).not.toHaveFocus();
   });
