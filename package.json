@@ -74,7 +74,7 @@
     "@types/jest": "26.0.0",
     "@types/jsdom": "16.2.3",
     "@types/node": "12.12.47",
-    "@types/react": "16.9.36",
+    "@types/react": "16.9.37",
     "@types/react-dom": "16.9.8",
     "@wkovacs64/prettier-config": "3.0.0",
     "babel-jest": "26.0.1",
@@ -104,6 +104,6 @@
     "react": ">= 16.8.0"
   },
   "resolutions": {
-    "**/@types/react": "16.9.36"
+    "**/@types/react": "16.9.37"
   }
 }
