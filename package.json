@@ -97,7 +97,7 @@
     "react-test-renderer": "16.13.1",
     "rimraf": "3.0.2",
     "rollup": "2.18.0",
-    "semantic-release": "17.0.8",
+    "semantic-release": "17.1.0",
     "typescript": "3.9.5"
   },
   "peerDependencies": {
