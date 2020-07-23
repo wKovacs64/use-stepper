@@ -4,7 +4,7 @@ import user from '@testing-library/user-event';
 import { renderHook, act } from '@testing-library/react-hooks';
 import useStepper, { Options, State, Action } from '../use-stepper';
 
-const Counter: React.FunctionComponent<Options> = (props) => {
+function Counter(props: Options): JSX.Element {
   const {
     setValue,
     getFormProps,
@@ -32,7 +32,7 @@ const Counter: React.FunctionComponent<Options> = (props) => {
       <button type="submit">submit</button>
     </form>
   );
-};
+}
 
 function renderForm(options: Options = {}): { value: string } & RenderResult {
   const renderResult = render(<Counter {...options} />);
@@ -220,16 +220,19 @@ describe('useStepper', () => {
   });
 
   it('accepts a custom reducer', () => {
-    const cents = (str: string): boolean => str.split('.').length === 2;
-    const dollars = (str: string): string => str.split('.')[0];
-    const getPreviousEvenDollar = (value: number): string => {
-      const str = String(value);
-      return cents(str) ? dollars(str) : dollars(String(value - 1));
-    };
-    const getNextEvenDollar = (value: number): string =>
-      dollars(String(value + 1));
+    const hasCents = (str: string) => str.split('.').length === 2;
+    const dollars = (str: string) => str.split('.')[0];
 
-    const dollarReducer = (state: State, action: Action): State => {
+    function getPreviousEvenDollar(value: number) {
+      const str = String(value);
+      return hasCents(str) ? dollars(str) : dollars(String(value - 1));
+    }
+
+    function getNextEvenDollar(value: number) {
+      return dollars(String(value + 1));
+    }
+
+    function dollarReducer(state: State, action: Action) {
       const currentNumericValue = parseFloat(state.value);
       switch (action.type) {
         case useStepper.actionTypes.increment: {
@@ -261,7 +264,7 @@ describe('useStepper', () => {
         default:
           return useStepper.defaultReducer(state, action);
       }
-    };
+    }
 
     const { result } = renderHook(() =>
       useStepper({ stateReducer: dollarReducer }),
