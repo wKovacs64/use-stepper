@@ -151,63 +151,63 @@ function useStepper({
     [validValueClosestTo, setValue],
   );
 
-  const handleIncrement = (): void => {
+  function handleIncrement() {
     dispatch({ type: actionTypes.increment });
-  };
+  }
 
-  const handleDecrement = (): void => {
+  function handleDecrement() {
     dispatch({ type: actionTypes.decrement });
-  };
+  }
 
-  const handleFocus = () => {
+  function handleFocus() {
     /* istanbul ignore else: not worth testing */
     if (inputRef.current !== null) {
       inputRef.current.value = value;
       inputRef.current.select();
     }
-  };
+  }
 
-  const handleBlur = () => {
+  function handleBlur() {
     dispatch({ type: actionTypes.coerce });
-  };
+  }
 
-  const handleChange: React.ChangeEventHandler<HTMLInputElement> = (ev) => {
+  function handleChange(ev: React.ChangeEvent<HTMLInputElement>) {
     setValue(ev.target.value);
-  };
+  }
 
-  const handleSubmit: React.FormEventHandler = (ev) => {
+  function handleSubmit(ev: React.FormEvent<HTMLFormElement>) {
     ev.preventDefault();
     /* istanbul ignore else: not worth testing */
     if (inputRef.current !== null) {
       inputRef.current.blur();
     }
-  };
+  }
 
-  const getFormProps = (formProps: FormProps = {}): FormProps => {
+  function getFormProps(formProps: FormProps = {}): FormProps {
     const { onSubmit, ...otherFormProps } = formProps;
     return {
       ...otherFormProps,
       onSubmit: callAll(handleSubmit, onSubmit),
     };
-  };
+  }
 
-  const getIncrementProps = (incrementProps: ButtonProps = {}): ButtonProps => {
+  function getIncrementProps(incrementProps: ButtonProps = {}): ButtonProps {
     const { onClick, ...otherIncrementProps } = incrementProps;
     return {
       ...otherIncrementProps,
       onClick: callAll(handleIncrement, onClick),
     };
-  };
+  }
 
-  const getDecrementProps = (decrementProps: ButtonProps = {}): ButtonProps => {
+  function getDecrementProps(decrementProps: ButtonProps = {}): ButtonProps {
     const { onClick, ...otherButtonProps } = decrementProps;
     return {
       ...otherButtonProps,
       onClick: callAll(handleDecrement, onClick),
     };
-  };
+  }
 
-  const getInputProps = (inputProps: InputProps = {}): InputProps => {
+  function getInputProps(inputProps: InputProps = {}): InputProps {
     const { ref, onBlur, onFocus, onChange, ...otherInputProps } = inputProps;
     return {
       ...otherInputProps,
@@ -218,7 +218,7 @@ function useStepper({
       onFocus: callAll(handleFocus, onFocus),
       onChange: callAll(handleChange, onChange),
     };
-  };
+  }
 
   // If the `defaultValue` parameter changes and the current value is still the
   // original default value (e.g. the user hasn't changed it), update the value
