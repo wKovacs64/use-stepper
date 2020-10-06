@@ -77,7 +77,7 @@
     "@types/react": "16.9.51",
     "@types/react-dom": "16.9.8",
     "@wkovacs64/prettier-config": "3.0.0",
-    "babel-jest": "26.5.0",
+    "babel-jest": "26.5.2",
     "codecov": "3.8.0",
     "commitizen": "4.2.1",
     "cross-env": "7.0.2",
