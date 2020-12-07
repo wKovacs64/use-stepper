@@ -159,7 +159,7 @@ describe('useStepper', () => {
     expect(input.selectionEnd).toBe(input.value.length);
   });
 
-  it('updates current value on blur', async () => {
+  it('updates current value on blur', () => {
     const min = 1;
     const max = 10;
     const defaultValue = 5;
@@ -170,21 +170,21 @@ describe('useStepper', () => {
 
     user.click(input);
     user.clear(input);
-    await user.type(input, String(max + 1));
+    user.type(input, String(max + 1));
     user.tab();
 
     expect(input.value).toBe(String(max));
 
     user.click(input);
     user.clear(input);
-    await user.type(input, String(min - 1));
+    user.type(input, String(min - 1));
     user.tab();
 
     expect(input.value).toBe(String(min));
 
     user.click(input);
     user.clear(input);
-    await user.type(input, '-');
+    user.type(input, '-');
     user.tab();
 
     expect(input.value).toBe(String(defaultValue));
