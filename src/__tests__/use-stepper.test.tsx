@@ -166,28 +166,28 @@ describe('useStepper', () => {
     renderForm({ defaultValue, min, max });
     const input = screen.getByTestId('input') as HTMLInputElement;
 
-    expect(input.value).toBe(String(defaultValue));
+    expect(input).toHaveValue(String(defaultValue));
 
     user.click(input);
     user.clear(input);
     user.type(input, String(max + 1));
     user.tab();
 
-    expect(input.value).toBe(String(max));
+    expect(input).toHaveValue(String(max));
 
     user.click(input);
     user.clear(input);
     user.type(input, String(min - 1));
     user.tab();
 
-    expect(input.value).toBe(String(min));
+    expect(input).toHaveValue(String(min));
 
     user.click(input);
     user.clear(input);
     user.type(input, '-');
     user.tab();
 
-    expect(input.value).toBe(String(defaultValue));
+    expect(input).toHaveValue(String(defaultValue));
   });
 
   it('blurs input on submit', () => {
