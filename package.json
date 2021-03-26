@@ -76,7 +76,7 @@
     "@testing-library/user-event": "13.0.16",
     "@types/jest": "26.0.22",
     "@types/jsdom": "16.2.7",
-    "@types/node": "14.14.35",
+    "@types/node": "14.14.36",
     "@types/react": "17.0.3",
     "@types/react-dom": "17.0.3",
     "@wkovacs64/prettier-config": "3.0.0",
