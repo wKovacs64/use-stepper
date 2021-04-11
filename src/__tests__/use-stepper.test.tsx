@@ -35,9 +35,9 @@ function Counter(props: Options): JSX.Element {
 }
 
 function renderForm(options: Options = {}): { value: string } & RenderResult {
-  const renderResult = render(<Counter {...options} />);
+  const utils = render(<Counter {...options} />);
   const { value } = screen.getByTestId('input') as HTMLInputElement;
-  return { value, ...renderResult };
+  return { value, ...utils };
 }
 
 describe('useStepper', () => {
