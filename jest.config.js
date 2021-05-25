@@ -9,6 +9,7 @@ module.exports = {
   coverageReporters: ['html', 'json', 'lcov', 'text'],
   modulePaths: ['<rootDir>/src'],
   setupFilesAfterEnv: ['<rootDir>/setupTests.js'],
+  testEnvironment: 'jsdom',
   testPathIgnorePatterns: ['/node_modules/', '<rootDir>/dist/'],
   watchPlugins: [
     'jest-watch-typeahead/filename',
