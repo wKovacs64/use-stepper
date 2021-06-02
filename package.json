@@ -76,7 +76,7 @@
     "@types/jsdom": "16.2.10",
     "@types/node": "14.17.1",
     "@types/react": "17.0.9",
-    "@types/react-dom": "17.0.5",
+    "@types/react-dom": "17.0.6",
     "@wkovacs64/prettier-config": "3.0.0",
     "babel-jest": "27.0.2",
     "codecov": "3.8.2",
