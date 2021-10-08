@@ -14,12 +14,12 @@ function Counter(props: Options): JSX.Element {
   } = useStepper(props);
 
   return (
-    <form data-testid="form" {...getFormProps()}>
-      <button data-testid="decrement" type="button" {...getDecrementProps()}>
+    <form {...getFormProps()}>
+      <button type="button" {...getDecrementProps()}>
         decrement
       </button>
-      <input data-testid="input" {...getInputProps()} />
-      <button data-testid="increment" type="button" {...getIncrementProps()}>
+      <input {...getInputProps()} />
+      <button type="button" {...getIncrementProps()}>
         increment
       </button>
       <button
@@ -36,7 +36,7 @@ function Counter(props: Options): JSX.Element {
 
 function renderForm(options: Options = {}): { value: string } & RenderResult {
   const utils = render(<Counter {...options} />);
-  const { value } = screen.getByTestId('input') as HTMLInputElement;
+  const { value } = screen.getByRole('textbox') as HTMLInputElement;
   return { value, ...utils };
 }
 
@@ -148,7 +148,7 @@ describe('useStepper', () => {
 
   it('selects input value on focus', () => {
     renderForm();
-    const input = screen.getByTestId('input') as HTMLInputElement;
+    const input = screen.getByRole('textbox') as HTMLInputElement;
 
     expect(input.selectionStart).toBe(input.value.length);
     expect(input.selectionEnd).toBe(input.value.length);
@@ -164,7 +164,7 @@ describe('useStepper', () => {
     const max = 10;
     const defaultValue = 5;
     renderForm({ defaultValue, min, max });
-    const input = screen.getByTestId('input') as HTMLInputElement;
+    const input = screen.getByRole('textbox') as HTMLInputElement;
 
     expect(input).toHaveValue(String(defaultValue));
 
@@ -192,7 +192,7 @@ describe('useStepper', () => {
 
   it('blurs input on submit', () => {
     renderForm();
-    const input = screen.getByTestId('input');
+    const input = screen.getByRole('textbox');
 
     input.focus();
     expect(input).toHaveFocus();
