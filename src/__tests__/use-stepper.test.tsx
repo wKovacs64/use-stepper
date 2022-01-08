@@ -1,8 +1,10 @@
 import React from 'react';
-import { render, screen, RenderResult } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
+import type { RenderResult } from '@testing-library/react';
 import user from '@testing-library/user-event';
 import { renderHook, act } from '@testing-library/react-hooks';
-import useStepper, { Options, State, Action } from '../use-stepper';
+import useStepper from '../use-stepper';
+import type { Options, State, Action } from '../use-stepper';
 
 function Counter(props: Options): JSX.Element {
   const {
