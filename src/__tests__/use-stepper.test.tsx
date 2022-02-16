@@ -222,6 +222,7 @@ describe('useStepper', () => {
   });
 
   it('accepts a custom reducer', () => {
+    /* eslint-disable jest/no-conditional-in-test */
     const hasCents = (str: string) => str.split('.').length === 2;
     const dollars = (str: string) => str.split('.')[0];
 
@@ -267,6 +268,7 @@ describe('useStepper', () => {
           return useStepper.defaultReducer(state, action);
       }
     }
+    /* eslint-enable jest/no-conditional-in-test */
 
     const { result } = renderHook(() =>
       useStepper({ stateReducer: dollarReducer }),
