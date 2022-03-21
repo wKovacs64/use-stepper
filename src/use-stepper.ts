@@ -213,6 +213,7 @@ function useStepper({
       ...otherInputProps,
       type: 'text',
       value: String(value),
+      // @ts-ignore - @types/react 17.0.41 broke stuff I don't know how to fix
       ref: mergeRefs(ref, inputRef),
       onBlur: callAll(handleBlur, onBlur),
       onFocus: callAll(handleFocus, onFocus),
