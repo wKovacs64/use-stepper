@@ -1,7 +1,7 @@
-import React from 'react';
+import * as React from 'react';
 import { render, screen } from '@testing-library/react';
 import type { RenderResult } from '@testing-library/react';
-import user from '@testing-library/user-event';
+import userEvent from '@testing-library/user-event';
 import { renderHook, act } from '@testing-library/react-hooks';
 import useStepper from '../use-stepper';
 import type { Options, State, Action } from '../use-stepper';
@@ -148,20 +148,24 @@ describe('useStepper', () => {
     expect(result.current.value).toBe('2');
   });
 
-  it('selects input value on focus', () => {
+  it('selects input value on focus', async () => {
+    const user = userEvent.setup();
+
     renderForm();
     const input = screen.getByRole('textbox') as HTMLInputElement;
 
     expect(input.selectionStart).toBe(input.value.length);
     expect(input.selectionEnd).toBe(input.value.length);
 
-    user.click(input);
+    await user.click(input);
 
     expect(input.selectionStart).toBe(0);
     expect(input.selectionEnd).toBe(input.value.length);
   });
 
-  it('updates current value on blur', () => {
+  it('updates current value on blur', async () => {
+    const user = userEvent.setup();
+
     const min = 1;
     const max = 10;
     const defaultValue = 5;
@@ -170,36 +174,38 @@ describe('useStepper', () => {
 
     expect(input).toHaveValue(String(defaultValue));
 
-    user.click(input);
-    user.clear(input);
-    user.type(input, String(max + 1));
-    user.tab();
+    await user.click(input);
+    await user.clear(input);
+    await user.type(input, String(max + 1));
+    await user.tab();
 
     expect(input).toHaveValue(String(max));
 
-    user.click(input);
-    user.clear(input);
-    user.type(input, String(min - 1));
-    user.tab();
+    await user.click(input);
+    await user.clear(input);
+    await user.type(input, String(min - 1));
+    await user.tab();
 
     expect(input).toHaveValue(String(min));
 
-    user.click(input);
-    user.clear(input);
-    user.type(input, '-');
-    user.tab();
+    await user.click(input);
+    await user.clear(input);
+    await user.type(input, '-');
+    await user.tab();
 
     expect(input).toHaveValue(String(defaultValue));
   });
 
-  it('blurs input on submit', () => {
+  it('blurs input on submit', async () => {
+    const user = userEvent.setup();
+
     renderForm();
     const input = screen.getByRole('textbox');
 
     input.focus();
     expect(input).toHaveFocus();
 
-    user.click(screen.getByRole('button', { name: /submit/i }));
+    await user.click(screen.getByRole('button', { name: /submit/i }));
 
     expect(input).not.toHaveFocus();
   });
