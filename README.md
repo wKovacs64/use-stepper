@@ -74,12 +74,8 @@ npm install use-stepper
 import useStepper from 'use-stepper';
 
 function MyStepper() {
-  const {
-    getFormProps,
-    getInputProps,
-    getIncrementProps,
-    getDecrementProps,
-  } = useStepper();
+  const { getFormProps, getInputProps, getIncrementProps, getDecrementProps } =
+    useStepper();
 
   return (
     <form {...getFormProps()}>
