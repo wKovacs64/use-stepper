@@ -172,8 +172,5 @@ $RECYCLE.BIN/
 # Build directory
 /dist
 
-# npm
-package-lock.json
-
 # rollup-typescript-plugin2
 .rts2_*
