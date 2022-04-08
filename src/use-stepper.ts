@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { callAll, mergeRefs, usePrevious } from './utils';
 
 const actionTypes = {
@@ -119,10 +119,11 @@ function useStepper({
             return { value: action.payload };
           }
           return state;
+          /* c8 ignore start */
         }
-        /* istanbul ignore next: this will never happen */
         default:
           throw new Error(`Unsupported action type: ${action.type}`);
+        /* c8 ignore stop */
       }
     },
     [validValueClosestTo, defaultValue, step],

@@ -60,7 +60,7 @@ describe('useStepper', () => {
   it('returns the correct properties', () => {
     const { result } = renderHook(() => useStepper());
     expect(result.current).toMatchInlineSnapshot(`
-      Object {
+      {
         "decrement": [Function],
         "getDecrementProps": [Function],
         "getFormProps": [Function],
@@ -76,7 +76,7 @@ describe('useStepper', () => {
   it('provides the correct form props in getFormProps', () => {
     const { result } = renderHook(() => useStepper());
     expect(result.current.getFormProps()).toMatchInlineSnapshot(`
-      Object {
+      {
         "onSubmit": [Function],
       }
     `);
@@ -85,7 +85,7 @@ describe('useStepper', () => {
   it('provides the correct input props in getInputProps', () => {
     const { result } = renderHook(() => useStepper());
     expect(result.current.getInputProps()).toMatchInlineSnapshot(`
-      Object {
+      {
         "onBlur": [Function],
         "onChange": [Function],
         "onFocus": [Function],
@@ -99,7 +99,7 @@ describe('useStepper', () => {
   it('provides the correct decrement props in getDecrementProps', () => {
     const { result } = renderHook(() => useStepper());
     expect(result.current.getDecrementProps()).toMatchInlineSnapshot(`
-      Object {
+      {
         "onClick": [Function],
       }
     `);
@@ -108,7 +108,7 @@ describe('useStepper', () => {
   it('provides the correct increment props in getIncrementProps', () => {
     const { result } = renderHook(() => useStepper());
     expect(result.current.getIncrementProps()).toMatchInlineSnapshot(`
-      Object {
+      {
         "onClick": [Function],
       }
     `);

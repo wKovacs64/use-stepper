@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { mergeRefs } from '../merge-refs';
 
 describe('mergeRefs', () => {
@@ -16,7 +16,7 @@ describe('mergeRefs', () => {
   it('merges React ref objects and function refs', () => {
     const input = React.createElement('input', { type: 'text' });
     const ref1 = React.createRef();
-    const ref2 = jest.fn();
+    const ref2 = vi.fn();
 
     mergeRefs(ref1, ref2)(input);
 
