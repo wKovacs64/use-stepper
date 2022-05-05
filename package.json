@@ -96,7 +96,7 @@
     "rollup": "2.72.0",
     "semantic-release": "19.0.2",
     "typescript": "4.6.4",
-    "vitest": "0.10.2"
+    "vitest": "0.10.4"
   },
   "peerDependencies": {
     "react": ">= 16.8.0"
