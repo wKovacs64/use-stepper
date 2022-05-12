@@ -70,7 +70,7 @@
     "@testing-library/react": "13.2.0",
     "@testing-library/user-event": "14.2.0",
     "@types/jsdom": "16.2.14",
-    "@types/node": "16.11.34",
+    "@types/node": "16.11.35",
     "@types/react": "18.0.9",
     "@types/react-dom": "18.0.4",
     "@types/ws": "8.5.3",
