@@ -197,6 +197,7 @@ function useStepper({
     const { onClick, ...otherIncrementProps } = incrementProps;
     return {
       ...otherIncrementProps,
+      'aria-hidden': true,
       disabled: value === String(max),
       onClick: callAll(handleIncrement, onClick),
     };
@@ -206,6 +207,7 @@ function useStepper({
     const { onClick, ...otherButtonProps } = decrementProps;
     return {
       ...otherButtonProps,
+      'aria-hidden': true,
       disabled: value === String(min),
       onClick: callAll(handleDecrement, onClick),
     };

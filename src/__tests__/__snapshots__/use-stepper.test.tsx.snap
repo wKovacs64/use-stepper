@@ -2,6 +2,7 @@
 
 exports[`useStepper > provides the correct decrement props in getDecrementProps 1`] = `
 {
+  "aria-hidden": true,
   "disabled": false,
   "onClick": [Function],
 }
@@ -15,6 +16,7 @@ exports[`useStepper > provides the correct form props in getFormProps 1`] = `
 
 exports[`useStepper > provides the correct increment props in getIncrementProps 1`] = `
 {
+  "aria-hidden": true,
   "disabled": false,
   "onClick": [Function],
 }
