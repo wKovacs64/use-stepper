@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import { callAll, mergeRefs, usePrevious } from './utils';
 
 const actionTypes = {
@@ -196,6 +197,7 @@ function useStepper({
     const { onClick, ...otherIncrementProps } = incrementProps;
     return {
       ...otherIncrementProps,
+      disabled: value === String(max),
       onClick: callAll(handleIncrement, onClick),
     };
   }
@@ -204,6 +206,7 @@ function useStepper({
     const { onClick, ...otherButtonProps } = decrementProps;
     return {
       ...otherButtonProps,
+      disabled: value === String(min),
       onClick: callAll(handleDecrement, onClick),
     };
   }
@@ -212,6 +215,15 @@ function useStepper({
     const { ref, onBlur, onFocus, onChange, ...otherInputProps } = inputProps;
     return {
       ...otherInputProps,
+      inputMode: 'decimal',
+      pattern: '[0-9]*(.[0-9]+)?',
+      role: 'spinbutton',
+      'aria-valuemin': min,
+      'aria-valuemax': max,
+      'aria-valuenow': Number(value),
+      'aria-valuetext': value,
+      autoComplete: 'off',
+      autoCorrect: 'off',
       type: 'text',
       value: String(value),
       ref: mergeRefs(ref, inputRef),

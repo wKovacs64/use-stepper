@@ -1,17 +1,12 @@
-import * as React from 'react';
-import {
-  act,
-  render,
-  renderHook,
-  screen,
-  type RenderResult,
-} from '@testing-library/react';
+import React from 'react';
+import { act, render, renderHook, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import useStepper, {
-  type Options,
-  type State,
-  type Action,
-} from '../use-stepper';
+
+import useStepper from '../use-stepper';
+
+// eslint-disable-next-line import/order
+import type { RenderResult } from '@testing-library/react';
+import type { Action, Options, State } from '../use-stepper';
 
 function Counter(props: Options): JSX.Element {
   const {
@@ -45,7 +40,7 @@ function Counter(props: Options): JSX.Element {
 
 function renderForm(options: Options = {}): { value: string } & RenderResult {
   const utils = render(<Counter {...options} />);
-  const { value } = screen.getByRole('textbox') as HTMLInputElement;
+  const { value } = screen.getByRole('spinbutton') as HTMLInputElement;
   return { value, ...utils };
 }
 
@@ -66,59 +61,27 @@ describe('useStepper', () => {
 
   it('returns the correct properties', () => {
     const { result } = renderHook(() => useStepper());
-    expect(result.current).toMatchInlineSnapshot(`
-      {
-        "decrement": [Function],
-        "getDecrementProps": [Function],
-        "getFormProps": [Function],
-        "getIncrementProps": [Function],
-        "getInputProps": [Function],
-        "increment": [Function],
-        "setValue": [Function],
-        "value": "0",
-      }
-    `);
+    expect(result.current).toMatchSnapshot();
   });
 
   it('provides the correct form props in getFormProps', () => {
     const { result } = renderHook(() => useStepper());
-    expect(result.current.getFormProps()).toMatchInlineSnapshot(`
-      {
-        "onSubmit": [Function],
-      }
-    `);
+    expect(result.current.getFormProps()).toMatchSnapshot();
   });
 
   it('provides the correct input props in getInputProps', () => {
     const { result } = renderHook(() => useStepper());
-    expect(result.current.getInputProps()).toMatchInlineSnapshot(`
-      {
-        "onBlur": [Function],
-        "onChange": [Function],
-        "onFocus": [Function],
-        "ref": [Function],
-        "type": "text",
-        "value": "0",
-      }
-    `);
+    expect(result.current.getInputProps()).toMatchSnapshot();
   });
 
   it('provides the correct decrement props in getDecrementProps', () => {
     const { result } = renderHook(() => useStepper());
-    expect(result.current.getDecrementProps()).toMatchInlineSnapshot(`
-      {
-        "onClick": [Function],
-      }
-    `);
+    expect(result.current.getDecrementProps()).toMatchSnapshot();
   });
 
   it('provides the correct increment props in getIncrementProps', () => {
     const { result } = renderHook(() => useStepper());
-    expect(result.current.getIncrementProps()).toMatchInlineSnapshot(`
-      {
-        "onClick": [Function],
-      }
-    `);
+    expect(result.current.getIncrementProps()).toMatchSnapshot();
   });
 
   it('constrains setValue calls to min and max', () => {
@@ -147,10 +110,12 @@ describe('useStepper', () => {
     );
 
     expect(result.current.value).toBe('1');
+    expect(result.current.getDecrementProps().disabled).toBeTruthy();
     act(() => result.current.decrement());
     expect(result.current.value).toBe('1');
     act(() => result.current.increment());
     expect(result.current.value).toBe('2');
+    expect(result.current.getIncrementProps().disabled).toBeTruthy();
     act(() => result.current.increment());
     expect(result.current.value).toBe('2');
   });
@@ -159,7 +124,7 @@ describe('useStepper', () => {
     const user = userEvent.setup();
 
     renderForm();
-    const input = screen.getByRole('textbox') as HTMLInputElement;
+    const input = screen.getByRole('spinbutton') as HTMLInputElement;
 
     expect(input.selectionStart).toBe(input.value.length);
     expect(input.selectionEnd).toBe(input.value.length);
@@ -177,7 +142,7 @@ describe('useStepper', () => {
     const max = 10;
     const defaultValue = 5;
     renderForm({ defaultValue, min, max });
-    const input = screen.getByRole('textbox') as HTMLInputElement;
+    const input = screen.getByRole('spinbutton') as HTMLInputElement;
 
     expect(input).toHaveValue(String(defaultValue));
 
@@ -207,7 +172,7 @@ describe('useStepper', () => {
     const user = userEvent.setup();
 
     renderForm();
-    const input = screen.getByRole('textbox');
+    const input = screen.getByRole('spinbutton');
 
     input.focus();
     expect(input).toHaveFocus();
