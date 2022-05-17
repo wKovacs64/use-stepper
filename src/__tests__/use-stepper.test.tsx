@@ -331,4 +331,43 @@ describe('useStepper', () => {
       expect(result.current.value).toBe('33');
     });
   });
+
+  describe('should work with decimals', () => {
+    // it('when the step is a decimal', () => {
+    //   const { result } = renderHook((opts) => useStepper(opts), {
+    //     initialProps: {
+    //       step: 0.11,
+    //       defaultValue: 3,
+    //     },
+    //   });
+
+    //   expect(result.current.value).toBe('3');
+    //   act(() => result.current.increment());
+    //   expect(result.current.value).toBe('3.11');
+    //   act(() => result.current.increment());
+    //   expect(result.current.value).toBe('3.22');
+    //   act(() => result.current.decrement());
+    //   expect(result.current.value).toBe('3.11');
+    //   act(() => result.current.decrement());
+    //   expect(result.current.value).toBe('3.00');
+    // });
+
+    it('when the value is a decimal', () => {
+      const { result } = renderHook((opts) => useStepper(opts), {
+        initialProps: {
+          step: 1,
+          defaultValue: 0.5,
+        },
+      });
+
+      act(() => result.current.increment());
+      expect(result.current.value).toBe('1.5');
+      act(() => result.current.increment());
+      expect(result.current.value).toBe('2.5');
+      act(() => result.current.decrement());
+      expect(result.current.value).toBe('1.5');
+      act(() => result.current.decrement());
+      expect(result.current.value).toBe('0.5');
+    });
+  });
 });

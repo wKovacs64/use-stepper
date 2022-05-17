@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { sum } from './decimals';
 import { callAll, mergeRefs, usePrevious } from './utils';
 
 const actionTypes = {
@@ -91,14 +92,14 @@ function useStepper({
       const currentNumericValue = parseFloat(state.value);
       switch (action.type) {
         case actionTypes.increment: {
-          const newValue = validValueClosestTo(currentNumericValue + step);
+          const newValue = validValueClosestTo(sum(currentNumericValue, step));
           if (newValue !== state.value) {
             return { value: newValue };
           }
           return state;
         }
         case actionTypes.decrement: {
-          const newValue = validValueClosestTo(currentNumericValue - step);
+          const newValue = validValueClosestTo(sum(currentNumericValue, -step));
           if (newValue !== state.value) {
             return { value: newValue };
           }
