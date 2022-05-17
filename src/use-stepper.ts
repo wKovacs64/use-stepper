@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import { callAll, mergeRefs, usePrevious } from './utils';
 
 const actionTypes = {
