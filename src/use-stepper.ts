@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { sum } from './decimals';
+import { sum } from './utils/decimals';
 import { callAll, mergeRefs, usePrevious } from './utils';
 
 const actionTypes = {
