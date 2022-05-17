@@ -221,10 +221,13 @@ function useStepper({
       role: 'spinbutton',
       'aria-valuemin': min,
       'aria-valuemax': max,
-      'aria-valuenow': Number(value),
+      'aria-valuenow': Number.isNaN(Number.parseFloat(value))
+        ? undefined
+        : Number.parseFloat(value),
       'aria-valuetext': value,
       autoComplete: 'off',
       autoCorrect: 'off',
+      spellCheck: 'false',
       type: 'text',
       value: String(value),
       ref: mergeRefs(ref, inputRef),
