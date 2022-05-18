@@ -8,7 +8,7 @@
     "noEmit": true,
     "strict": true,
     "stripInternal": true,
-    "skipLibCheck": true,
-    "types": ["node", "jsdom", "vitest/globals", "@testing-library/jest-dom"]
+    "skipLibCheck": false,
+    "types": ["vitest/globals"]
   }
 }
