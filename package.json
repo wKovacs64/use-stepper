@@ -44,6 +44,7 @@
     "format": "prettier --write .",
     "lint": "eslint --ext \".js,.jsx,.ts,.tsx\" .",
     "husky:install": "husky install",
+    "postinstall": "patch-package",
     "prebuild": "npm run --silent clean",
     "prepare": "npm-run-all --silent husky:install build",
     "prepublishOnly": "npm-run-all --silent --sequential lint check-types test:coverage",
@@ -98,5 +99,8 @@
   },
   "peerDependencies": {
     "react": ">= 16.8.0"
+  },
+  "dependencies": {
+    "patch-package": "6.4.7"
   }
 }
