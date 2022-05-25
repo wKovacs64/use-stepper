@@ -218,8 +218,6 @@ function useStepper({
     const { ref, onBlur, onFocus, onChange, ...otherInputProps } = inputProps;
     return {
       ...otherInputProps,
-      inputMode: 'decimal',
-      pattern: '[0-9]*(.[0-9]+)?',
       role: 'spinbutton',
       'aria-valuemin': min,
       'aria-valuemax': max,
