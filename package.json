@@ -1,7 +1,7 @@
 {
   "name": "use-stepper",
   "version": "0.0.0-semantically-released",
-  "description": "React hook to manage a numeric stepper",
+  "description": "React hook to manage a numeric stepper/spinbutton",
   "keywords": [
     "react",
     "hook",
@@ -10,7 +10,8 @@
     "counter",
     "increment",
     "decrement",
-    "input"
+    "input",
+    "spinbutton"
   ],
   "author": {
     "name": "Justin Hall",

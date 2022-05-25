@@ -1,6 +1,6 @@
 # use-stepper
 
-_React hook to manage a numeric stepper_
+_React hook to manage a numeric stepper/spinbutton_
 
 [![npm Version][npm-image]][npm-url] [![Build Status][ci-image]][ci-url]
 [![Code Coverage][coverage-image]][coverage-url]
@@ -8,13 +8,13 @@ _React hook to manage a numeric stepper_
 
 ## The problem
 
-A numeric stepper (decrement button, input, increment button) is deceptively
-non-trivial to implement. You have to manage the minimum, the maximum, the input
-itself displaying the current value (conceptually numeric, but ultimately a
-string in HTML), allowing a user to type freely and hopefully arrive at a valid
-number (e.g. "-" is `NaN` but you have to let them type it so they can get to
-"-4", so simply parsing their input as a number is insufficient), interpreting
-the input's value on blur, etc.
+A numeric stepper or "spinbutton" (decrement button, input, increment button) is
+deceptively non-trivial to implement. You have to manage the minimum, the
+maximum, the input itself displaying the current value (conceptually numeric,
+but ultimately a string in HTML), allowing a user to type freely and hopefully
+arrive at a valid number (e.g. "-" is `NaN` but you have to let them type it so
+they can get to "-4", so simply parsing their input as a number is
+insufficient), interpreting the input's value on blur, etc.
 
 ## This solution
 

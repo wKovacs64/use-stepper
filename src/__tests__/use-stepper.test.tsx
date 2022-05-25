@@ -45,7 +45,7 @@ function Counter(props: Options): JSX.Element {
 
 function renderForm(options: Options = {}): { value: string } & RenderResult {
   const utils = render(<Counter {...options} />);
-  const { value } = screen.getByRole('textbox') as HTMLInputElement;
+  const { value } = screen.getByRole('spinbutton') as HTMLInputElement;
   return { value, ...utils };
 }
 
@@ -93,10 +93,19 @@ describe('useStepper', () => {
     const { result } = renderHook(() => useStepper());
     expect(result.current.getInputProps()).toMatchInlineSnapshot(`
       {
+        "aria-valuemax": 1.7976931348623157e+308,
+        "aria-valuemin": -1.7976931348623157e+308,
+        "aria-valuenow": 0,
+        "aria-valuetext": "0",
+        "autoComplete": "off",
+        "autoCorrect": "off",
         "onBlur": [Function],
         "onChange": [Function],
         "onFocus": [Function],
+        "onKeyDown": [Function],
         "ref": [Function],
+        "role": "spinbutton",
+        "spellCheck": "false",
         "type": "text",
         "value": "0",
       }
@@ -107,7 +116,10 @@ describe('useStepper', () => {
     const { result } = renderHook(() => useStepper());
     expect(result.current.getDecrementProps()).toMatchInlineSnapshot(`
       {
+        "aria-hidden": true,
+        "disabled": false,
         "onClick": [Function],
+        "tabIndex": -1,
       }
     `);
   });
@@ -116,7 +128,10 @@ describe('useStepper', () => {
     const { result } = renderHook(() => useStepper());
     expect(result.current.getIncrementProps()).toMatchInlineSnapshot(`
       {
+        "aria-hidden": true,
+        "disabled": false,
         "onClick": [Function],
+        "tabIndex": -1,
       }
     `);
   });
@@ -147,19 +162,38 @@ describe('useStepper', () => {
     );
 
     expect(result.current.value).toBe('1');
+    expect(result.current.getDecrementProps().disabled).toBeTruthy();
     act(() => result.current.decrement());
     expect(result.current.value).toBe('1');
     act(() => result.current.increment());
     expect(result.current.value).toBe('2');
+    expect(result.current.getIncrementProps().disabled).toBeTruthy();
     act(() => result.current.increment());
     expect(result.current.value).toBe('2');
+  });
+
+  it('handles keyboard events', async () => {
+    const user = userEvent.setup();
+
+    renderForm({ defaultValue: 5, min: 1, max: 10, step: 0.5 });
+    const input = screen.getByRole('spinbutton') as HTMLInputElement;
+
+    await user.click(input);
+    await user.keyboard('{ArrowUp}');
+    expect(input).toHaveValue('5.5');
+    await user.keyboard('{ArrowDown}{ArrowDown}{ArrowDown}');
+    expect(input).toHaveValue('4');
+    await user.keyboard('{Home}');
+    expect(input).toHaveValue('1');
+    await user.keyboard('{End}');
+    expect(input).toHaveValue('10');
   });
 
   it('selects input value on focus', async () => {
     const user = userEvent.setup();
 
     renderForm();
-    const input = screen.getByRole('textbox') as HTMLInputElement;
+    const input = screen.getByRole('spinbutton') as HTMLInputElement;
 
     expect(input.selectionStart).toBe(input.value.length);
     expect(input.selectionEnd).toBe(input.value.length);
@@ -177,7 +211,7 @@ describe('useStepper', () => {
     const max = 10;
     const defaultValue = 5;
     renderForm({ defaultValue, min, max });
-    const input = screen.getByRole('textbox') as HTMLInputElement;
+    const input = screen.getByRole('spinbutton') as HTMLInputElement;
 
     expect(input).toHaveValue(String(defaultValue));
 
@@ -207,7 +241,7 @@ describe('useStepper', () => {
     const user = userEvent.setup();
 
     renderForm();
-    const input = screen.getByRole('textbox');
+    const input = screen.getByRole('spinbutton');
 
     input.focus();
     expect(input).toHaveFocus();
