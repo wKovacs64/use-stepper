@@ -1,6 +1,8 @@
 import * as React from 'react';
+import { callAll } from './utils/call-all';
+import { mergeRefs } from './utils/merge-refs';
 import { sum } from './utils/decimals';
-import { callAll, mergeRefs, usePrevious } from './utils';
+import { usePrevious } from './utils/use-previous';
 
 const actionTypes = {
   increment: 'increment',
