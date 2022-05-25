@@ -79,7 +79,7 @@ function useStepper({
   const validValueClosestTo = React.useCallback(
     (newValue: number | string) => {
       const newValueNum =
-        typeof newValue === 'number' ? newValue : parseFloat(newValue);
+        typeof newValue === 'number' ? newValue : Number.parseFloat(newValue);
       return String(Math.min(max, Math.max(newValueNum, min)));
     },
     [max, min],
@@ -89,7 +89,7 @@ function useStepper({
 
   const defaultReducer = React.useCallback(
     (state: State, action: Action): State => {
-      const currentNumericValue = parseFloat(state.value);
+      const currentNumericValue = Number.parseFloat(state.value);
       switch (action.type) {
         case actionTypes.increment: {
           const newValue = validValueClosestTo(sum(currentNumericValue, step));
@@ -230,7 +230,7 @@ function useStepper({
     if (
       enableReinitialize &&
       previousDefaultValue !== defaultValue &&
-      previousDefaultValue === parseFloat(value)
+      previousDefaultValue === Number.parseFloat(value)
     ) {
       setValue(validValueClosestTo(defaultValue));
     }

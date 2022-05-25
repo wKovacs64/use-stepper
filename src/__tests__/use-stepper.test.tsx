@@ -56,7 +56,7 @@ describe('useStepper', () => {
 
   it('returns a value even when no options are specified', () => {
     const { result } = renderHook(() => useStepper());
-    expect(Number.isNaN(parseFloat(result.current.value))).toBeFalsy();
+    expect(Number.isNaN(Number.parseFloat(result.current.value))).toBeFalsy();
   });
 
   it('honors the defaultValue parameter', () => {
@@ -249,17 +249,20 @@ describe('useStepper', () => {
     }
 
     function dollarReducer(state: State, action: Action) {
-      const currentNumericValue = parseFloat(state.value);
+      const currentNumericValue = Number.parseFloat(state.value);
       switch (action.type) {
         case useStepper.actionTypes.increment: {
-          const newValue = parseInt(getNextEvenDollar(currentNumericValue), 10);
+          const newValue = Number.parseInt(
+            getNextEvenDollar(currentNumericValue),
+            10,
+          );
           if (newValue !== currentNumericValue) {
             return { ...state, value: String(newValue) };
           }
           return state;
         }
         case useStepper.actionTypes.decrement: {
-          const newValue = parseInt(
+          const newValue = Number.parseInt(
             getPreviousEvenDollar(currentNumericValue),
             10,
           );
