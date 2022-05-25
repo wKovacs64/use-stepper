@@ -197,6 +197,7 @@ function useStepper({
     return {
       ...otherIncrementProps,
       'aria-hidden': true,
+      tabIndex: -1,
       disabled: value === String(max),
       onClick: callAll(handleIncrement, onClick),
     };
@@ -207,6 +208,7 @@ function useStepper({
     return {
       ...otherButtonProps,
       'aria-hidden': true,
+      tabIndex: -1,
       disabled: value === String(min),
       onClick: callAll(handleDecrement, onClick),
     };

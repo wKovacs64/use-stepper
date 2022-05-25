@@ -120,6 +120,7 @@ describe('useStepper', () => {
         "aria-hidden": true,
         "disabled": false,
         "onClick": [Function],
+        "tabIndex": -1,
       }
     `);
   });
@@ -131,6 +132,7 @@ describe('useStepper', () => {
         "aria-hidden": true,
         "disabled": false,
         "onClick": [Function],
+        "tabIndex": -1,
       }
     `);
   });
