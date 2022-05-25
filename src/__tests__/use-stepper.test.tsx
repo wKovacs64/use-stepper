@@ -67,70 +67,71 @@ describe('useStepper', () => {
   it('returns the correct properties', () => {
     const { result } = renderHook(() => useStepper());
     expect(result.current).toMatchInlineSnapshot(`
-    {
-      "decrement": [Function],
-      "getDecrementProps": [Function],
-      "getFormProps": [Function],
-      "getIncrementProps": [Function],
-      "getInputProps": [Function],
-      "increment": [Function],
-      "setValue": [Function],
-      "value": "0",
-    }
+      {
+        "decrement": [Function],
+        "getDecrementProps": [Function],
+        "getFormProps": [Function],
+        "getIncrementProps": [Function],
+        "getInputProps": [Function],
+        "increment": [Function],
+        "setValue": [Function],
+        "value": "0",
+      }
     `);
   });
 
   it('provides the correct form props in getFormProps', () => {
     const { result } = renderHook(() => useStepper());
     expect(result.current.getFormProps()).toMatchInlineSnapshot(`
-    {
-      "onSubmit": [Function],
-    }
+      {
+        "onSubmit": [Function],
+      }
     `);
   });
 
   it('provides the correct input props in getInputProps', () => {
     const { result } = renderHook(() => useStepper());
     expect(result.current.getInputProps()).toMatchInlineSnapshot(`
-    {
-      "aria-valuemax": 1.7976931348623157e+308,
-      "aria-valuemin": -1.7976931348623157e+308,
-      "aria-valuenow": 0,
-      "aria-valuetext": "0",
-      "autoComplete": "off",
-      "autoCorrect": "off",
-      "inputMode": "decimal",
-      "onBlur": [Function],
-      "onChange": [Function],
-      "onFocus": [Function],
-      "pattern": "[0-9]*(.[0-9]+)?",
-      "ref": [Function],
-      "role": "spinbutton",
-      "type": "text",
-      "value": "0",
-    }
+      {
+        "aria-valuemax": 1.7976931348623157e+308,
+        "aria-valuemin": -1.7976931348623157e+308,
+        "aria-valuenow": 0,
+        "aria-valuetext": "0",
+        "autoComplete": "off",
+        "autoCorrect": "off",
+        "inputMode": "decimal",
+        "onBlur": [Function],
+        "onChange": [Function],
+        "onFocus": [Function],
+        "pattern": "[0-9]*(.[0-9]+)?",
+        "ref": [Function],
+        "role": "spinbutton",
+        "spellCheck": "false",
+        "type": "text",
+        "value": "0",
+      }
     `);
   });
 
   it('provides the correct decrement props in getDecrementProps', () => {
     const { result } = renderHook(() => useStepper());
     expect(result.current.getDecrementProps()).toMatchInlineSnapshot(`
-    {
-      "aria-hidden": true,
-      "disabled": false,
-      "onClick": [Function],
-    }
+      {
+        "aria-hidden": true,
+        "disabled": false,
+        "onClick": [Function],
+      }
     `);
   });
 
   it('provides the correct increment props in getIncrementProps', () => {
     const { result } = renderHook(() => useStepper());
     expect(result.current.getIncrementProps()).toMatchInlineSnapshot(`
-    {
-      "aria-hidden": true,
-      "disabled": false,
-      "onClick": [Function],
-    }
+      {
+        "aria-hidden": true,
+        "disabled": false,
+        "onClick": [Function],
+      }
     `);
   });
 
