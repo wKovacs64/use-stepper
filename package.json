@@ -40,7 +40,6 @@
     "clean": "rimraf dist coverage",
     "check-types": "tsc",
     "cm": "git-cz",
-    "develop": "microbundle watch",
     "format": "prettier --write .",
     "lint": "eslint --ext \".js,.jsx,.ts,.tsx\" .",
     "husky:install": "husky install",
