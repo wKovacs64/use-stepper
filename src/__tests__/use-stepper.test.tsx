@@ -102,6 +102,7 @@ describe('useStepper', () => {
         "onBlur": [Function],
         "onChange": [Function],
         "onFocus": [Function],
+        "onKeyDown": [Function],
         "ref": [Function],
         "role": "spinbutton",
         "spellCheck": "false",
@@ -169,6 +170,23 @@ describe('useStepper', () => {
     expect(result.current.getIncrementProps().disabled).toBeTruthy();
     act(() => result.current.increment());
     expect(result.current.value).toBe('2');
+  });
+
+  it('handles keyboard events', async () => {
+    const user = userEvent.setup();
+
+    renderForm({ defaultValue: 5, min: 1, max: 10, step: 0.5 });
+    const input = screen.getByRole('spinbutton') as HTMLInputElement;
+
+    await user.click(input);
+    await user.keyboard('{ArrowUp}');
+    expect(input).toHaveValue('5.5');
+    await user.keyboard('{ArrowDown}{ArrowDown}{ArrowDown}');
+    expect(input).toHaveValue('4');
+    await user.keyboard('{Home}');
+    expect(input).toHaveValue('1');
+    await user.keyboard('{End}');
+    expect(input).toHaveValue('10');
   });
 
   it('selects input value on focus', async () => {

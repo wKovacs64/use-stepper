@@ -161,7 +161,6 @@ function useStepper({
   }
 
   function handleFocus() {
-    /* istanbul ignore else: not worth testing */
     if (inputRef.current !== null) {
       inputRef.current.value = value;
       inputRef.current.select();
@@ -176,9 +175,37 @@ function useStepper({
     setValue(ev.target.value);
   }
 
+  function handleKeyDown(ev: React.KeyboardEvent<HTMLInputElement>) {
+    switch (ev.key) {
+      case 'ArrowUp': {
+        dispatch({ type: actionTypes.coerce });
+        handleIncrement();
+        ev.preventDefault();
+        break;
+      }
+      case 'ArrowDown': {
+        dispatch({ type: actionTypes.coerce });
+        handleDecrement();
+        ev.preventDefault();
+        break;
+      }
+      case 'Home': {
+        setValueClosestTo(String(min));
+        ev.preventDefault();
+        break;
+      }
+      case 'End': {
+        setValueClosestTo(String(max));
+        ev.preventDefault();
+        break;
+      }
+      default:
+        break;
+    }
+  }
+
   function handleSubmit(ev: React.FormEvent<HTMLFormElement>) {
     ev.preventDefault();
-    /* istanbul ignore else: not worth testing */
     if (inputRef.current !== null) {
       inputRef.current.blur();
     }
@@ -215,7 +242,8 @@ function useStepper({
   }
 
   function getInputProps(inputProps: InputProps = {}): InputProps {
-    const { ref, onBlur, onFocus, onChange, ...otherInputProps } = inputProps;
+    const { ref, onBlur, onFocus, onChange, onKeyDown, ...otherInputProps } =
+      inputProps;
     return {
       ...otherInputProps,
       role: 'spinbutton',
@@ -234,6 +262,7 @@ function useStepper({
       onBlur: callAll(handleBlur, onBlur),
       onFocus: callAll(handleFocus, onFocus),
       onChange: callAll(handleChange, onChange),
+      onKeyDown: callAll(handleKeyDown, onKeyDown),
     };
   }
 
