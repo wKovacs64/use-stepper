@@ -42,7 +42,7 @@
     "check-types": "tsc",
     "cm": "git-cz",
     "format": "prettier --write .",
-    "lint": "eslint --ext \".js,.jsx,.ts,.tsx\" .",
+    "lint": "eslint .",
     "husky:install": "husky install",
     "postinstall": "patch-package",
     "prebuild": "npm run --silent clean",
