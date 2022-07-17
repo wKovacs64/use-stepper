@@ -265,11 +265,11 @@ If you know of any others, please send a pull request to add them here.
 [npm-image]: https://img.shields.io/npm/v/use-stepper.svg?style=flat-square
 [npm-url]: https://www.npmjs.com/package/use-stepper
 [ci-image]:
-  https://img.shields.io/circleci/project/github/wKovacs64/use-stepper/master.svg?style=flat-square
+  https://img.shields.io/circleci/project/github/wKovacs64/use-stepper/main.svg?style=flat-square
 [ci-url]: https://circleci.com/gh/wKovacs64/use-stepper
 [coverage-image]:
-  https://img.shields.io/codecov/c/github/wKovacs64/use-stepper/master.svg?style=flat-square
-[coverage-url]: https://codecov.io/gh/wKovacs64/use-stepper/branch/master
+  https://img.shields.io/codecov/c/github/wKovacs64/use-stepper/main.svg?style=flat-square
+[coverage-url]: https://codecov.io/gh/wKovacs64/use-stepper/branch/main
 [semantic-release-image]:
   https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg?style=flat-square
 [semantic-release-url]: https://github.com/semantic-release/semantic-release
@@ -282,4 +282,4 @@ If you know of any others, please send a pull request to add them here.
 [use-reducer]: https://reactjs.org/docs/hooks-reference.html#usereducer
 [kent-state-reducer]: https://kentcdodds.com/blog/the-state-reducer-pattern
 [react-stepper-primitive]: https://github.com/ajoslin/react-stepper-primitive
-[license]: https://github.com/wKovacs64/use-stepper/tree/master/LICENSE.txt
+[license]: https://github.com/wKovacs64/use-stepper/tree/main/LICENSE.txt
