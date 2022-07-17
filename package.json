@@ -41,7 +41,7 @@
     "clean": "rimraf dist coverage",
     "check-types": "tsc",
     "cm": "git-cz",
-    "format": "prettier --write .",
+    "format": "prettier --cache --write .",
     "lint": "eslint .",
     "husky:install": "husky install",
     "postinstall": "patch-package",
