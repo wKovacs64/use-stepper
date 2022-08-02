@@ -3,9 +3,9 @@
 _React hook to manage a numeric stepper/spinbutton_
 
 [![npm Version][npm-image]][npm-url]
+[![Build Status][ci-image]][ci-url]
 [![Code Coverage][coverage-image]][coverage-url]
 [![semantic-release][semantic-release-image]][semantic-release-url]
-[![Build Status][ci-image]][ci-url]
 
 ## The problem
 
@@ -266,8 +266,8 @@ If you know of any others, please send a pull request to add them here.
 [npm-image]: https://img.shields.io/npm/v/use-stepper.svg?style=flat-square
 [npm-url]: https://www.npmjs.com/package/use-stepper
 [ci-image]:
-  https://github.com/wKovacs64/use-stepper/actions/workflows/ci.yml/badge.svg?event=push
-[ci-url]: https://github.com/wKovacs64/use-stepper/actions/workflows/ci.yml
+  https://img.shields.io/github/workflow/status/wKovacs64/use-stepper/%F0%9F%A4%96%20CI/main?logo=github&style=flat-square
+[ci-url]: https://github.com/wKovacs64/use-stepper/actions?query=workflow%3Aci
 [coverage-image]:
   https://img.shields.io/codecov/c/github/wKovacs64/use-stepper/main.svg?style=flat-square
 [coverage-url]: https://codecov.io/gh/wKovacs64/use-stepper/branch/main
