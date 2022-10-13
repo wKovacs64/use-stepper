@@ -2,8 +2,7 @@
 
 _React hook to manage a numeric stepper/spinbutton_
 
-[![npm Version][npm-image]][npm-url]
-[![Build Status][ci-image]][ci-url]
+[![npm Version][npm-image]][npm-url] [![Build Status][ci-image]][ci-url]
 [![Code Coverage][coverage-image]][coverage-url]
 
 ## The problem
@@ -71,7 +70,7 @@ npm install use-stepper
 ## Usage
 
 ```js
-import useStepper from 'use-stepper';
+import { useStepper } from 'use-stepper';
 
 function MyStepper() {
   const { getFormProps, getInputProps, getIncrementProps, getDecrementProps } =

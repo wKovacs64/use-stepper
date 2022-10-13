@@ -20,15 +20,6 @@ export interface Action {
   payload?: string;
 }
 
-export interface Options {
-  defaultValue?: number;
-  step?: number;
-  min?: number;
-  max?: number;
-  enableReinitialize?: boolean;
-  stateReducer?: (state: State, action: Action) => State;
-}
-
 export type FormProps = React.PropsWithRef<
   React.DetailedHTMLProps<
     React.FormHTMLAttributes<HTMLFormElement>,
@@ -50,6 +41,15 @@ export type ButtonProps = React.PropsWithRef<
   >
 >;
 
+export interface Options {
+  defaultValue?: number;
+  step?: number;
+  min?: number;
+  max?: number;
+  enableReinitialize?: boolean;
+  stateReducer?: (state: State, action: Action) => State;
+}
+
 export interface ReturnValue {
   value: string;
   setValue: (newValue: string) => void;
@@ -67,14 +67,15 @@ export interface UseStepper {
   defaultReducer: (state: State, action: Action) => State;
 }
 
-function useStepper({
+// @ts-ignore - `actionTypes` and `defaultReducer` are added at invocation time
+export const useStepper: UseStepper = ({
   defaultValue = 0,
   step = 1,
   min = -Number.MAX_VALUE,
   max = Number.MAX_VALUE,
   enableReinitialize = false,
   stateReducer: userReducer,
-}: Options = {}): ReturnValue {
+} = {}) => {
   const previousDefaultValue = usePrevious(defaultValue);
   const inputRef = React.useRef<HTMLInputElement>(null);
 
@@ -300,6 +301,4 @@ function useStepper({
     getIncrementProps,
     getDecrementProps,
   };
-}
-
-export default useStepper as UseStepper;
+};

@@ -7,7 +7,8 @@ import {
   type RenderResult,
 } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import useStepper, {
+import {
+  useStepper,
   type Options,
   type State,
   type Action,
