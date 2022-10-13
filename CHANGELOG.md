@@ -1,1 +1,14 @@
 # Change Log
+
+## 4.0.0
+
+### Major Changes
+
+- [`b4675db`](https://github.com/wKovacs64/use-stepper/commit/b4675dba037347d2b81a1bde3de2cda5c2ecd745) Thanks [@wKovacs64](https://github.com/wKovacs64)! - `useStepper` is now a named export.
+
+  ```diff
+  -import useStepper from 'use-stepper'
+  +import { useStepper } from 'use-stepper'
+  ```
+
+- [`588b235`](https://github.com/wKovacs64/use-stepper/commit/588b235581080bc476e3f537910edf932bea819e) Thanks [@wKovacs64](https://github.com/wKovacs64)! - This package is no longer published in UMD format. If you need to consume it as UMD, please remain on v3.
