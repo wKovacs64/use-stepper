@@ -52,16 +52,10 @@ your application.
 
 ## Installation
 
-Using [yarn][yarn]:
+Using [npm][npm]:
 
 ```shell
-yarn add use-stepper
-```
-
-Or, [npm][npm]:
-
-```shell
-npm install use-stepper
+npm install use-stepper # or, with yarn: yarn add use-stepper
 ```
 
 > This package also depends on `react` 16.8.0 or newer. Please make sure you
@@ -252,6 +246,9 @@ value.
 
 ## Other Solutions
 
+- [`@zag-js/number-input`][zag-number-input] is a more full-featured alternative
+  driven by state machines and maintained by the team behind the popular Chakra
+  UI project.
 - [`react-stepper-primitive`][react-stepper-primitive] by Andrew Joslin was the
   prime source of inspiration for this hook.
 
@@ -271,11 +268,11 @@ If you know of any others, please send a pull request to add them here.
 [coverage-url]: https://codecov.io/gh/wKovacs64/use-stepper/branch/main
 [react]: https://reactjs.org/
 [hooks-intro]: https://reactjs.org/docs/hooks-intro.html
-[yarn]: https://yarnpkg.com/
 [npm]: https://www.npmjs.com/
 [kent-prop-getters]:
   https://kentcdodds.com/blog/how-to-give-rendering-control-to-users-with-prop-getters
 [use-reducer]: https://reactjs.org/docs/hooks-reference.html#usereducer
 [kent-state-reducer]: https://kentcdodds.com/blog/the-state-reducer-pattern
+[zag-number-input]: https://zagjs.com/components/react/number-input
 [react-stepper-primitive]: https://github.com/ajoslin/react-stepper-primitive
 [license]: https://github.com/wKovacs64/use-stepper/tree/main/LICENSE.txt
