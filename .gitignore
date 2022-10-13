@@ -171,6 +171,3 @@ $RECYCLE.BIN/
 
 # Build directory
 /dist
-
-# rollup-typescript-plugin2
-.rts2_*

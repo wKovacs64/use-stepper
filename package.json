@@ -19,11 +19,13 @@
   },
   "contributors": [],
   "license": "MIT",
-  "source": "src/use-stepper.ts",
   "main": "dist/use-stepper.js",
-  "module": "dist/use-stepper.m.js",
-  "unpkg": "dist/use-stepper.umd.js",
+  "module": "dist/use-stepper.mjs",
   "types": "dist/use-stepper.d.ts",
+  "exports": {
+    "import": "./dist/use-stepper.mjs",
+    "require": "./dist/use-stepper.js"
+  },
   "files": [
     "dist",
     "!dist/**/__tests__"
@@ -37,7 +39,7 @@
   },
   "homepage": "https://github.com/wKovacs64/use-stepper#readme",
   "scripts": {
-    "build": "microbundle",
+    "build": "tsup ./src/use-stepper.ts --format cjs,esm --dts --sourcemap --clean",
     "changeset": "changeset",
     "changeset:version": "changeset version",
     "changeset:publish": "changeset publish",
@@ -47,7 +49,6 @@
     "lint": "eslint .",
     "husky:install": "husky install",
     "postinstall": "patch-package",
-    "prebuild": "npm run --silent clean",
     "prepare": "run-s --silent husky:install build",
     "prepublishOnly": "run-s --silent lint check-types test:coverage",
     "test": "vitest run",
@@ -79,14 +80,13 @@
     "eslint-plugin-wkovacs64": "13.16.0",
     "husky": "8.0.1",
     "lint-staged": "13.0.3",
-    "microbundle": "0.15.1",
     "npm-run-all": "4.1.5",
     "prettier": "2.7.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-test-renderer": "18.2.0",
     "rimraf": "3.0.2",
-    "rollup": "2.79.1",
+    "tsup": "6.2.3",
     "typescript": "4.8.4",
     "vitest": "0.24.1"
   },
