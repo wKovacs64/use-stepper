@@ -41,7 +41,7 @@
   "scripts": {
     "build": "tsup ./src/use-stepper.ts --format cjs,esm --dts --sourcemap --clean",
     "changeset": "changeset",
-    "changeset:version": "changeset version",
+    "changeset:version": "changeset version && npm install --package-lock-only",
     "changeset:publish": "changeset publish",
     "clean": "rimraf dist coverage",
     "check-types": "tsc",
