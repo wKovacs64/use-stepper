@@ -46,7 +46,7 @@
     "clean": "rimraf dist coverage",
     "check-types": "tsc",
     "format": "prettier --cache --write .",
-    "lint": "eslint --cache .",
+    "lint": "eslint .",
     "husky:install": "husky install",
     "postinstall": "patch-package",
     "prepare": "run-s --silent husky:install build",
