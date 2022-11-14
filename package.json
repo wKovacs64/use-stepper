@@ -70,7 +70,7 @@
     "@types/react": "18.0.25",
     "@types/react-dom": "18.0.8",
     "@types/ws": "8.5.3",
-    "@vitest/coverage-c8": "0.25.1",
+    "@vitest/coverage-c8": "0.25.2",
     "@wkovacs64/prettier-config": "3.0.2",
     "c8": "7.12.0",
     "codecov": "3.8.3",
@@ -88,7 +88,7 @@
     "rimraf": "3.0.2",
     "tsup": "6.4.0",
     "typescript": "4.8.4",
-    "vitest": "0.25.1"
+    "vitest": "0.25.2"
   },
   "peerDependencies": {
     "react": ">= 16.8.0"
