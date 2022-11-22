@@ -1,5 +1,11 @@
 # Change Log
 
+## 4.0.1
+
+### Patch Changes
+
+- [`fedd8c6`](https://github.com/wKovacs64/use-stepper/commit/fedd8c6f258eec1030cf50ed819b6b4803b02a9b) Thanks [@wKovacs64](https://github.com/wKovacs64)! - Write version bumps to `package-lock.json`.
+
 ## 4.0.0
 
 ### Major Changes
