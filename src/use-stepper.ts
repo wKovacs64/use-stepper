@@ -134,8 +134,8 @@ export const useStepper: UseStepper = ({
   );
 
   // Expose our internal/default reducer and action types
-  (useStepper as UseStepper).defaultReducer = defaultReducer;
-  (useStepper as UseStepper).actionTypes = actionTypes;
+  useStepper.defaultReducer = defaultReducer;
+  useStepper.actionTypes = actionTypes;
 
   const [{ value }, dispatch] = React.useReducer(
     userReducer || defaultReducer,

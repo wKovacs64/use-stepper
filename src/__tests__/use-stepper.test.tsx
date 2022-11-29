@@ -46,7 +46,7 @@ function Counter(props: Options): JSX.Element {
 
 function renderForm(options: Options = {}): { value: string } & RenderResult {
   const utils = render(<Counter {...options} />);
-  const { value } = screen.getByRole('spinbutton') as HTMLInputElement;
+  const { value } = screen.getByRole<HTMLInputElement>('spinbutton');
   return { value, ...utils };
 }
 
@@ -177,7 +177,7 @@ describe('useStepper', () => {
     const user = userEvent.setup();
 
     renderForm({ defaultValue: 5, min: 1, max: 10, step: 0.5 });
-    const input = screen.getByRole('spinbutton') as HTMLInputElement;
+    const input = screen.getByRole<HTMLInputElement>('spinbutton');
 
     await user.click(input);
     await user.keyboard('{ArrowUp}');
@@ -194,7 +194,7 @@ describe('useStepper', () => {
     const user = userEvent.setup();
 
     renderForm();
-    const input = screen.getByRole('spinbutton') as HTMLInputElement;
+    const input = screen.getByRole<HTMLInputElement>('spinbutton');
 
     expect(input.selectionStart).toBe(input.value.length);
     expect(input.selectionEnd).toBe(input.value.length);
@@ -212,7 +212,7 @@ describe('useStepper', () => {
     const max = 10;
     const defaultValue = 5;
     renderForm({ defaultValue, min, max });
-    const input = screen.getByRole('spinbutton') as HTMLInputElement;
+    const input = screen.getByRole<HTMLInputElement>('spinbutton');
 
     expect(input).toHaveValue(String(defaultValue));
 

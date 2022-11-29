@@ -29,6 +29,6 @@ describe('mergeRefs', () => {
     const ref1 = null;
     const ref2 = {};
 
-    mergeRefs(ref1, ref2 as any)(input);
+    mergeRefs(ref1, ref2 as React.MutableRefObject<unknown>)(input);
   });
 });
