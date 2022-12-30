@@ -261,7 +261,7 @@ If you know of any others, please send a pull request to add them here.
 [npm-image]: https://img.shields.io/npm/v/use-stepper.svg?style=flat-square
 [npm-url]: https://www.npmjs.com/package/use-stepper
 [ci-image]:
-  https://img.shields.io/github/workflow/status/wKovacs64/use-stepper/%F0%9F%A4%96%20CI/main?logo=github&style=flat-square
+  https://img.shields.io/github/actions/workflow/status/wKovacs64/use-stepper/ci.yml?logo=github&style=flat-square
 [ci-url]: https://github.com/wKovacs64/use-stepper/actions?query=workflow%3Aci
 [coverage-image]:
   https://img.shields.io/codecov/c/github/wKovacs64/use-stepper/main.svg?style=flat-square
