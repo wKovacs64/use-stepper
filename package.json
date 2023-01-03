@@ -91,6 +91,6 @@
     "react": ">= 16.8.0"
   },
   "dependencies": {
-    "patch-package": "6.5.0"
+    "patch-package": "6.5.1"
   }
 }
