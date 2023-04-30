@@ -9,6 +9,7 @@
     "strict": true,
     "stripInternal": true,
     "skipLibCheck": false,
+    "verbatimModuleSyntax": true,
     "types": ["vitest/globals"]
   }
 }
