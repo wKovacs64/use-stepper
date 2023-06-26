@@ -1,6 +1,6 @@
 {
   "name": "use-stepper",
-  "version": "4.0.1",
+  "version": "4.0.2",
   "description": "React hook to manage a numeric stepper/spinbutton",
   "keywords": [
     "react",
