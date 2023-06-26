@@ -1,5 +1,13 @@
 # Change Log
 
+## 4.0.2
+
+### Patch Changes
+
+- [#191](https://github.com/wKovacs64/use-stepper/pull/191) [`ac45099`](https://github.com/wKovacs64/use-stepper/commit/ac450993f814f18f0651a886845466e5f7a9ed2a) Thanks [@renovate](https://github.com/apps/renovate)! - Publish the types for ESM as well as CJS.
+
+  For reference, see the following Twitter thread from Andrew Branch: https://mobile.twitter.com/atcb/status/1634653474041503744?t=8RVawwsEHrxnCD8BaITckg
+
 ## 4.0.1
 
 ### Patch Changes
