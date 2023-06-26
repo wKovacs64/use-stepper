@@ -21,7 +21,6 @@
   "license": "MIT",
   "main": "dist/use-stepper.js",
   "module": "dist/use-stepper.mjs",
-  "types": "dist/use-stepper.d.ts",
   "exports": {
     "import": "./dist/use-stepper.mjs",
     "require": "./dist/use-stepper.js"
@@ -81,7 +80,7 @@
     "react-dom": "18.2.0",
     "react-test-renderer": "18.2.0",
     "rimraf": "5.0.1",
-    "tsup": "6.7.0",
+    "tsup": "7.1.0",
     "typescript": "5.1.3",
     "vitest": "0.32.2"
   },
