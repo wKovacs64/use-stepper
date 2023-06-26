@@ -21,7 +21,6 @@
   "license": "MIT",
   "main": "dist/use-stepper.js",
   "module": "dist/use-stepper.mjs",
-  "types": "dist/use-stepper.d.ts",
   "exports": {
     "import": "./dist/use-stepper.mjs",
     "require": "./dist/use-stepper.js"
