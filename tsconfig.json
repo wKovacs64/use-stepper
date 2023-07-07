@@ -8,7 +8,7 @@
     "noEmit": true,
     "strict": true,
     "stripInternal": true,
-    "skipLibCheck": false,
+    "skipLibCheck": true,
     "verbatimModuleSyntax": true,
     "types": ["vitest/globals"]
   }
