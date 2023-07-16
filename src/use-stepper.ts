@@ -67,7 +67,7 @@ export interface UseStepper {
   defaultReducer: (state: State, action: Action) => State;
 }
 
-// @ts-ignore - `actionTypes` and `defaultReducer` are added at invocation time
+// @ts-expect-error (`actionTypes` and `defaultReducer` are added at invocation time)
 export const useStepper: UseStepper = ({
   defaultValue = 0,
   step = 1,

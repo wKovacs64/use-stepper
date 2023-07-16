@@ -2,7 +2,7 @@ export function countDecimals(value: string | number) {
   const text = value.toString();
 
   // verify if number 0.000005 is represented as "5e-6"
-  if (text.indexOf('e-') > -1) {
+  if (text.includes('e-')) {
     const [, trail] = text.split('e-');
     const deg = Number.parseInt(trail, 10);
     return deg;

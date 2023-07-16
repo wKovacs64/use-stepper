@@ -147,9 +147,9 @@ describe('useStepper', () => {
     );
 
     expect(result.current.value).toBe('1');
-    void act(() => result.current.setValue('2'));
+    act(() => result.current.setValue('2'));
     expect(result.current.value).toBe('2');
-    void act(() => result.current.setValue('3'));
+    act(() => result.current.setValue('3'));
     expect(result.current.value).toBe('2');
   });
 
@@ -164,12 +164,12 @@ describe('useStepper', () => {
 
     expect(result.current.value).toBe('1');
     expect(result.current.getDecrementProps().disabled).toBeTruthy();
-    void act(() => result.current.decrement());
+    act(() => result.current.decrement());
     expect(result.current.value).toBe('1');
-    void act(() => result.current.increment());
+    act(() => result.current.increment());
     expect(result.current.value).toBe('2');
     expect(result.current.getIncrementProps().disabled).toBeTruthy();
-    void act(() => result.current.increment());
+    act(() => result.current.increment());
     expect(result.current.value).toBe('2');
   });
 
@@ -258,14 +258,14 @@ describe('useStepper', () => {
     );
 
     expect(result.current.value).toBe('1');
-    void act(() => result.current.decrement());
+    act(() => result.current.decrement());
     expect(result.current.value).toBe('0.75');
-    void act(() => result.current.increment());
-    void act(() => result.current.increment());
+    act(() => result.current.increment());
+    act(() => result.current.increment());
     expect(result.current.value).toBe('1.25');
-    void act(() => result.current.setValue('-0.5'));
+    act(() => result.current.setValue('-0.5'));
     expect(result.current.value).toBe('-0.5');
-    void act(() => result.current.decrement());
+    act(() => result.current.decrement());
     expect(result.current.value).toBe('-0.75');
   });
 
@@ -325,14 +325,14 @@ describe('useStepper', () => {
       useStepper({ stateReducer: dollarReducer }),
     );
 
-    void act(() => result.current.setValue('4.25'));
+    act(() => result.current.setValue('4.25'));
     expect(result.current.value).toBe('4.25');
-    void act(() => result.current.increment());
+    act(() => result.current.increment());
     expect(result.current.value).toBe('5');
 
-    void act(() => result.current.setValue('0.25'));
+    act(() => result.current.setValue('0.25'));
     expect(result.current.value).toBe('0.25');
-    void act(() => result.current.decrement());
+    act(() => result.current.decrement());
     expect(result.current.value).toBe('0');
   });
 
@@ -353,7 +353,7 @@ describe('useStepper', () => {
       });
 
       expect(result.current.value).toBe('33');
-      void act(() => result.current.increment());
+      act(() => result.current.increment());
       expect(result.current.value).toBe('34');
       rerender({ enableReinitialize: true, defaultValue: 42 });
       expect(result.current.value).toBe('34');
@@ -380,13 +380,13 @@ describe('useStepper', () => {
       });
 
       expect(result.current.value).toBe('3');
-      void act(() => result.current.increment());
+      act(() => result.current.increment());
       expect(result.current.value).toBe('3.11');
-      void act(() => result.current.increment());
+      act(() => result.current.increment());
       expect(result.current.value).toBe('3.22');
-      void act(() => result.current.decrement());
+      act(() => result.current.decrement());
       expect(result.current.value).toBe('3.11');
-      void act(() => result.current.decrement());
+      act(() => result.current.decrement());
       expect(result.current.value).toBe('3');
     });
 
@@ -398,13 +398,13 @@ describe('useStepper', () => {
         },
       });
 
-      void act(() => result.current.increment());
+      act(() => result.current.increment());
       expect(result.current.value).toBe('1.5');
-      void act(() => result.current.increment());
+      act(() => result.current.increment());
       expect(result.current.value).toBe('2.5');
-      void act(() => result.current.decrement());
+      act(() => result.current.decrement());
       expect(result.current.value).toBe('1.5');
-      void act(() => result.current.decrement());
+      act(() => result.current.decrement());
       expect(result.current.value).toBe('0.5');
     });
   });
