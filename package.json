@@ -46,7 +46,6 @@
     "check-types": "tsc",
     "format": "prettier --cache --write .",
     "lint": "eslint .",
-    "postinstall": "patch-package",
     "prepare": "npm run --silent build",
     "prepublishOnly": "run-s --silent lint check-types test:coverage",
     "test": "vitest run",
@@ -61,7 +60,7 @@
     "@changesets/changelog-github": "0.4.8",
     "@changesets/cli": "2.26.2",
     "@testing-library/dom": "9.3.1",
-    "@testing-library/jest-dom": "5.17.0",
+    "@testing-library/jest-dom": "6.0.0",
     "@testing-library/react": "14.0.0",
     "@testing-library/user-event": "14.4.3",
     "@types/node": "18.17.5",
@@ -86,8 +85,5 @@
   },
   "peerDependencies": {
     "react": ">= 16.8.0"
-  },
-  "dependencies": {
-    "patch-package": "8.0.0"
   }
 }
