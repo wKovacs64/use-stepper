@@ -46,7 +46,6 @@
     "check-types": "tsc",
     "format": "prettier --cache --write .",
     "lint": "eslint .",
-    "postinstall": "patch-package",
     "prepare": "npm run --silent build",
     "prepublishOnly": "run-s --silent lint check-types test:coverage",
     "test": "vitest run",
@@ -86,8 +85,5 @@
   },
   "peerDependencies": {
     "react": ">= 16.8.0"
-  },
-  "dependencies": {
-    "patch-package": "8.0.0"
   }
 }
