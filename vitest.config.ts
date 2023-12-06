@@ -9,6 +9,7 @@ export default defineConfig({
         ...(configDefaults.coverage.exclude ?? []),
         'setupTests.ts',
         '**/index.ts',
+        '**/*.js',
       ],
       reporter: ['text', 'lcov', 'clover'],
     },
