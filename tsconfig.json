@@ -1,7 +1,8 @@
 {
   "compilerOptions": {
     "target": "esnext",
-    "moduleResolution": "node",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
     "jsx": "react",
     "resolveJsonModule": true,
     "esModuleInterop": true,

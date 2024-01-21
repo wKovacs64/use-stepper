@@ -19,11 +19,12 @@
   },
   "contributors": [],
   "license": "MIT",
-  "main": "dist/use-stepper.js",
-  "module": "dist/use-stepper.mjs",
+  "type": "module",
+  "main": "dist/use-stepper.cjs",
+  "module": "dist/use-stepper.js",
   "exports": {
-    "import": "./dist/use-stepper.mjs",
-    "require": "./dist/use-stepper.js"
+    "import": "./dist/use-stepper.js",
+    "require": "./dist/use-stepper.cjs"
   },
   "files": [
     "dist",
@@ -44,6 +45,7 @@
     "changeset:publish": "changeset publish",
     "clean": "rimraf dist coverage",
     "format": "prettier --cache --write .",
+    "format:check": "prettier --cache --check .",
     "lint": "eslint .",
     "prepare": "npm run --silent build",
     "prepublishOnly": "run-s --silent lint typecheck test:coverage",
