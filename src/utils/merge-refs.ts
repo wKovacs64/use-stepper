@@ -10,7 +10,6 @@ export function mergeRefs<T>(...refs: Ref<T>[]): (ref: T) => void {
       if (typeof resolvableRef === 'function') {
         resolvableRef(ref);
       } else if (isMutableRefObject(resolvableRef)) {
-        // eslint-disable-next-line no-param-reassign
         resolvableRef.current = ref;
       }
     });
