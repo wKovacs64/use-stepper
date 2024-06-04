@@ -7,23 +7,20 @@ _React hook to manage a numeric stepper/spinbutton_
 
 ## The problem
 
-A numeric stepper or "spinbutton" (decrement button, input, increment button) is
-deceptively non-trivial to implement. You have to manage the minimum, the
-maximum, the input itself displaying the current value (conceptually numeric,
-but ultimately a string in HTML), allowing a user to type freely and hopefully
-arrive at a valid number (e.g. "-" is `NaN` but you have to let them type it so
-they can get to "-4", so simply parsing their input as a number is
-insufficient), interpreting the input's value on blur, etc.
+A numeric stepper or "spinbutton" (decrement button, input, increment button) is deceptively
+non-trivial to implement. You have to manage the minimum, the maximum, the input itself displaying
+the current value (conceptually numeric, but ultimately a string in HTML), allowing a user to type
+freely and hopefully arrive at a valid number (e.g. "-" is `NaN` but you have to let them type it so
+they can get to "-4", so simply parsing their input as a number is insufficient), interpreting the
+input's value on blur, etc.
 
 ## This solution
 
-This [React][react] [hook][hooks-intro] manages all this for you so you only
-have to worry about the styling. It returns the current value, functions for
-manual value manipulation, and a collection of [prop getters][kent-prop-getters]
-to spread across your form elements to make it all work together. It also
-includes the ability to provide your own custom state reducer to enable ultimate
-control over what actions like "increment", "decrement", "coerce", etc. mean in
-your application.
+This [React][react] [hook][hooks-intro] manages all this for you so you only have to worry about the
+styling. It returns the current value, functions for manual value manipulation, and a collection of
+[prop getters][kent-prop-getters] to spread across your form elements to make it all work together.
+It also includes the ability to provide your own custom state reducer to enable ultimate control
+over what actions like "increment", "decrement", "coerce", etc. mean in your application.
 
 ## Table of Contents
 
@@ -58,8 +55,8 @@ Using [npm][npm]:
 npm install use-stepper # or, with yarn: yarn add use-stepper
 ```
 
-> This package also depends on `react` 16.8.0 or newer. Please make sure you
-> have that installed as well.
+> This package also depends on `react` 16.8.0 or newer. Please make sure you have that installed as
+> well.
 
 ## Usage
 
@@ -67,8 +64,7 @@ npm install use-stepper # or, with yarn: yarn add use-stepper
 import { useStepper } from 'use-stepper';
 
 function MyStepper() {
-  const { getFormProps, getInputProps, getIncrementProps, getDecrementProps } =
-    useStepper();
+  const { getFormProps, getInputProps, getIncrementProps, getDecrementProps } = useStepper();
 
   return (
     <form {...getFormProps()}>
@@ -82,8 +78,8 @@ function MyStepper() {
 
 ## Basic Options
 
-The hook accepts an options object as its only parameter. The entries for the
-basic options are as follows:
+The hook accepts an options object as its only parameter. The entries for the basic options are as
+follows:
 
 ### defaultValue
 
@@ -115,31 +111,28 @@ The maximum value allowed.
 
 > `boolean` | optional, default: `false`
 
-Controls whether the current value (if unchanged) will update to the new default
-if `defaultValue` changes.
+Controls whether the current value (if unchanged) will update to the new default if `defaultValue`
+changes.
 
 ### stateReducer
 
 > `function(state: object, action: object): object` | optional
 
-Changes to the state of the hook are applied using React's built-in
-[`useReducer`][use-reducer] hook. This function replaces the default reducer
-implementation, which allows you to author your own logic to execute when an
-action is dispatched. This gives you ultimate control in the event you wish to
-constrain the value or otherwise modify the default behavior. It gives you the
-current state and the action to execute, and you return the new state.
+Changes to the state of the hook are applied using React's built-in [`useReducer`][use-reducer]
+hook. This function replaces the default reducer implementation, which allows you to author your own
+logic to execute when an action is dispatched. This gives you ultimate control in the event you wish
+to constrain the value or otherwise modify the default behavior. It gives you the current state and
+the action to execute, and you return the new state.
 
 - `state`: the current state of the hook
 - `action`: the action to execute
 
-State is just an object with a `value` key (note: `value` is a string, so it
-should be converted to a number before performing mathematical operations on
-it).
+State is just an object with a `value` key (note: `value` is a string, so it should be converted to
+a number before performing mathematical operations on it).
 
-Actions have a `type` field and an optional `payload` field. The possible action
-types are discoverable through `useStepper.actionTypes` (e.g.
-`useStepper.actionTypes.increment`). The default reducer is also available at
-`useStepper.defaultReducer` in case you want to defer to the default
+Actions have a `type` field and an optional `payload` field. The possible action types are
+discoverable through `useStepper.actionTypes` (e.g. `useStepper.actionTypes.increment`). The default
+reducer is also available at `useStepper.defaultReducer` in case you want to defer to the default
 implementation in some cases (e.g. for the default/unhandled action, perhaps).
 
 #### Example
@@ -210,13 +203,11 @@ The hook returns an object with the following shape:
 
 ### prop getters
 
-These functions are used to apply props to the elements that you render. This
-gives you maximum flexibility to render what, when, and wherever you like. You
-call these on the element in question (for example:
-`<input {...getInputProps()}`)). It's advisable to pass all your props to that
-function rather than applying them on the element yourself to avoid your props
-being overridden (or overriding the props returned). For example:
-`getInputProps({ onChange: myChangeHandler })`.
+These functions are used to apply props to the elements that you render. This gives you maximum
+flexibility to render what, when, and wherever you like. You call these on the element in question
+(for example: `<input {...getInputProps()}`)). It's advisable to pass all your props to that
+function rather than applying them on the element yourself to avoid your props being overridden (or
+overriding the props returned). For example: `getInputProps({ onChange: myChangeHandler })`.
 
 | key                 | type         | description                                                                  |
 | ------------------- | ------------ | ---------------------------------------------------------------------------- |
@@ -235,8 +226,7 @@ These are the values that represent the internal state of the hook.
 
 ### setters
 
-These functions are exposed to provide manual manipulation of the internal
-value.
+These functions are exposed to provide manual manipulation of the internal value.
 
 | key         | type          | description                                                                                                                                                    |
 | ----------- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -246,11 +236,10 @@ value.
 
 ## Other Solutions
 
-- [`@zag-js/number-input`][zag-number-input] is a more full-featured alternative
-  driven by state machines and maintained by the team behind the popular Chakra
-  UI project.
-- [`react-stepper-primitive`][react-stepper-primitive] by Andrew Joslin was the
-  prime source of inspiration for this hook.
+- [`@zag-js/number-input`][zag-number-input] is a more full-featured alternative driven by state
+  machines and maintained by the team behind the popular Chakra UI project.
+- [`react-stepper-primitive`][react-stepper-primitive] by Andrew Joslin was the prime source of
+  inspiration for this hook.
 
 If you know of any others, please send a pull request to add them here.
 

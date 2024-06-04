@@ -21,24 +21,15 @@ export interface Action {
 }
 
 export type FormProps = React.PropsWithRef<
-  React.DetailedHTMLProps<
-    React.FormHTMLAttributes<HTMLFormElement>,
-    HTMLFormElement
-  >
+  React.DetailedHTMLProps<React.FormHTMLAttributes<HTMLFormElement>, HTMLFormElement>
 >;
 
 export type InputProps = React.PropsWithRef<
-  React.DetailedHTMLProps<
-    React.InputHTMLAttributes<HTMLInputElement>,
-    HTMLInputElement
-  >
+  React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>
 >;
 
 export type ButtonProps = React.PropsWithRef<
-  React.DetailedHTMLProps<
-    React.ButtonHTMLAttributes<HTMLButtonElement>,
-    HTMLButtonElement
-  >
+  React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>
 >;
 
 export interface Options {
@@ -81,8 +72,7 @@ export const useStepper: UseStepper = ({
 
   const validValueClosestTo = React.useCallback(
     (newValue: number | string) => {
-      const newValueNum =
-        typeof newValue === 'number' ? newValue : Number.parseFloat(newValue);
+      const newValueNum = typeof newValue === 'number' ? newValue : Number.parseFloat(newValue);
       return String(Math.min(max, Math.max(newValueNum, min)));
     },
     [max, min],
@@ -137,10 +127,7 @@ export const useStepper: UseStepper = ({
   useStepper.defaultReducer = defaultReducer;
   useStepper.actionTypes = actionTypes;
 
-  const [{ value }, dispatch] = React.useReducer(
-    userReducer || defaultReducer,
-    initialState,
-  );
+  const [{ value }, dispatch] = React.useReducer(userReducer || defaultReducer, initialState);
 
   const setValue = React.useCallback((newValue: string) => {
     dispatch({
@@ -246,8 +233,7 @@ export const useStepper: UseStepper = ({
   }
 
   function getInputProps(inputProps: InputProps = {}): InputProps {
-    const { ref, onBlur, onFocus, onChange, onKeyDown, ...otherInputProps } =
-      inputProps;
+    const { ref, onBlur, onFocus, onChange, onKeyDown, ...otherInputProps } = inputProps;
     return {
       ...otherInputProps,
       role: 'spinbutton',
