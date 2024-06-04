@@ -1,9 +1,6 @@
 {
   "$schema": "https://unpkg.com/@changesets/config@2.2.0/schema.json",
-  "changelog": [
-    "@changesets/changelog-github",
-    { "repo": "wKovacs64/use-stepper" }
-  ],
+  "changelog": ["@changesets/changelog-github", { "repo": "wKovacs64/use-stepper" }],
   "commit": false,
   "fixed": [],
   "linked": [],

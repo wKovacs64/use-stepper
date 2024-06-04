@@ -1,27 +1,11 @@
 import * as React from 'react';
-import {
-  act,
-  render,
-  renderHook,
-  screen,
-  type RenderResult,
-} from '@testing-library/react';
+import { act, render, renderHook, screen, type RenderResult } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import {
-  useStepper,
-  type Options,
-  type State,
-  type Action,
-} from '../use-stepper';
+import { useStepper, type Options, type State, type Action } from '../use-stepper';
 
 function Counter(props: Options): JSX.Element {
-  const {
-    setValue,
-    getFormProps,
-    getInputProps,
-    getIncrementProps,
-    getDecrementProps,
-  } = useStepper(props);
+  const { setValue, getFormProps, getInputProps, getIncrementProps, getDecrementProps } =
+    useStepper(props);
 
   return (
     <form {...getFormProps()}>
@@ -32,11 +16,7 @@ function Counter(props: Options): JSX.Element {
       <button type="button" {...getIncrementProps()}>
         increment
       </button>
-      <button
-        data-testid="set-value-to-42"
-        type="button"
-        onClick={() => setValue('42')}
-      >
+      <button data-testid="set-value-to-42" type="button" onClick={() => setValue('42')}>
         set value to 42
       </button>
       <button type="submit">submit</button>
@@ -253,9 +233,7 @@ describe('useStepper', () => {
   });
 
   it('handles decimals', () => {
-    const { result } = renderHook(() =>
-      useStepper({ defaultValue: 1, step: 0.25 }),
-    );
+    const { result } = renderHook(() => useStepper({ defaultValue: 1, step: 0.25 }));
 
     expect(result.current.value).toBe('1');
     act(() => result.current.decrement());
@@ -286,20 +264,14 @@ describe('useStepper', () => {
       const currentNumericValue = Number.parseFloat(state.value);
       switch (action.type) {
         case useStepper.actionTypes.increment: {
-          const newValue = Number.parseInt(
-            getNextEvenDollar(currentNumericValue),
-            10,
-          );
+          const newValue = Number.parseInt(getNextEvenDollar(currentNumericValue), 10);
           if (newValue !== currentNumericValue) {
             return { ...state, value: String(newValue) };
           }
           return state;
         }
         case useStepper.actionTypes.decrement: {
-          const newValue = Number.parseInt(
-            getPreviousEvenDollar(currentNumericValue),
-            10,
-          );
+          const newValue = Number.parseInt(getPreviousEvenDollar(currentNumericValue), 10);
           if (newValue !== currentNumericValue) {
             return { ...state, value: String(newValue) };
           }
@@ -319,9 +291,7 @@ describe('useStepper', () => {
       }
     }
 
-    const { result } = renderHook(() =>
-      useStepper({ stateReducer: dollarReducer }),
-    );
+    const { result } = renderHook(() => useStepper({ stateReducer: dollarReducer }));
 
     act(() => result.current.setValue('4.25'));
     expect(result.current.value).toBe('4.25');
