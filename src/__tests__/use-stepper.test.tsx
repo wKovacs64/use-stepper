@@ -3,7 +3,7 @@ import { act, render, renderHook, screen, type RenderResult } from '@testing-lib
 import userEvent from '@testing-library/user-event';
 import { useStepper, type Options, type State, type Action } from '../use-stepper';
 
-function Counter(props: Options): JSX.Element {
+function Counter(props: Options): React.JSX.Element {
   const { setValue, getFormProps, getInputProps, getIncrementProps, getDecrementProps } =
     useStepper(props);
 
