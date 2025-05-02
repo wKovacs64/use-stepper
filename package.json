@@ -75,7 +75,7 @@
     "cross-env": "7.0.3",
     "doctoc": "2.2.1",
     "eslint": "9.25.1",
-    "npm-run-all2": "8.0.0",
+    "npm-run-all2": "8.0.1",
     "prettier": "3.5.3",
     "react": "19.1.0",
     "react-dom": "19.1.0",
