@@ -31,8 +31,7 @@
     "!dist/**/__tests__"
   ],
   "repository": {
-    "type": "git",
-    "url": "https://github.com/wKovacs64/use-stepper.git"
+    "url": "git+https://github.com/wKovacs64/use-stepper.git"
   },
   "bugs": {
     "url": "https://github.com/wKovacs64/use-stepper/issues"
@@ -65,7 +64,7 @@
     "@testing-library/jest-dom": "6.9.1",
     "@testing-library/react": "16.3.0",
     "@testing-library/user-event": "14.6.1",
-    "@types/node": "22.18.8",
+    "@types/node": "24.6.2",
     "@types/react": "19.2.0",
     "@types/react-dom": "19.2.0",
     "@types/ws": "8.18.1",
