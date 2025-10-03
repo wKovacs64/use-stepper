@@ -74,6 +74,7 @@
     "cross-env": "10.1.0",
     "doctoc": "2.2.1",
     "eslint": "9.36.0",
+    "happy-dom": "19.0.2",
     "npm-run-all2": "8.0.4",
     "prettier": "3.6.2",
     "react": "19.2.0",

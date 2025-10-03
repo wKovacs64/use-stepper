@@ -14,6 +14,6 @@ export default defineConfig({
       reporter: ['text', 'lcov', 'clover'],
     },
     globals: true,
-    environment: 'jsdom',
+    environment: 'happy-dom',
   },
 });
