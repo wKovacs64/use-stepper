@@ -376,4 +376,13 @@ describe('useStepper', () => {
       expect(result.current.value).toBe('0.5');
     });
   });
+
+  it('throws an error for unsupported action types', () => {
+    // Initialize hook to expose defaultReducer
+    renderHook(() => useStepper());
+
+    expect(() => {
+      useStepper.defaultReducer({ value: '0' }, { type: 'unknown' });
+    }).toThrow('Unsupported action type: unknown');
+  });
 });
