@@ -113,11 +113,11 @@ export const useStepper: UseStepper = ({
             return { value: action.payload };
           }
           return state;
-          /* c8 ignore start */
         }
-        default:
+        /* v8 ignore next -- @preserve */
+        default: {
           throw new Error(`Unsupported action type: ${action.type}`);
-        /* c8 ignore stop */
+        }
       }
     },
     [validValueClosestTo, defaultValue, step],
@@ -152,6 +152,7 @@ export const useStepper: UseStepper = ({
   }
 
   function handleFocus() {
+    /* v8 ignore else -- @preserve */
     if (inputRef.current !== null) {
       inputRef.current.value = value;
       inputRef.current.select();
@@ -197,6 +198,7 @@ export const useStepper: UseStepper = ({
 
   function handleSubmit(ev: React.FormEvent<HTMLFormElement>) {
     ev.preventDefault();
+    /* v8 ignore else -- @preserve */
     if (inputRef.current !== null) {
       inputRef.current.blur();
     }
