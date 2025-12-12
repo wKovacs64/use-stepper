@@ -40,13 +40,13 @@
   "scripts": {
     "build": "tsup ./src/use-stepper.ts --format cjs,esm --dts --sourcemap --clean",
     "changeset": "changeset",
-    "changeset:version": "changeset version && npm install --package-lock-only",
+    "changeset:version": "changeset version && pnpm install",
     "changeset:publish": "changeset publish",
     "clean": "rimraf dist coverage",
     "format": "prettier --cache --write .",
     "format:check": "prettier --cache --check .",
     "lint": "eslint --cache --cache-location ./node_modules/.cache/eslint .",
-    "prepare": "npm run --silent build",
+    "prepare": "pnpm run --silent build",
     "prepublishOnly": "run-s --silent lint typecheck test:coverage",
     "test": "vitest run",
     "test:coverage": "vitest run --coverage",
@@ -57,6 +57,7 @@
   "publishConfig": {
     "access": "public"
   },
+  "packageManager": "pnpm@10.25.0",
   "devDependencies": {
     "@changesets/changelog-github": "0.5.2",
     "@changesets/cli": "2.29.8",
