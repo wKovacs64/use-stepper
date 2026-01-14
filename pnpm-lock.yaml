@@ -40,10 +40,10 @@ importers:
         version: 8.18.1
       '@vitest/coverage-v8':
         specifier: 4.0.16
-        version: 4.0.16(vitest@4.0.16(@types/node@24.10.4)(happy-dom@20.0.11))
+        version: 4.0.16(vitest@4.0.16(@types/node@24.10.4)(happy-dom@20.1.0))
       '@wkovacs64/eslint-config':
         specifier: 7.11.1
-        version: 7.11.1(@testing-library/dom@10.4.1)(@typescript-eslint/utils@8.49.0(eslint@9.39.2)(typescript@5.9.3))(eslint@9.39.2)(typescript@5.9.3)(vitest@4.0.16(@types/node@24.10.4)(happy-dom@20.0.11))
+        version: 7.11.1(@testing-library/dom@10.4.1)(@typescript-eslint/utils@8.49.0(eslint@9.39.2)(typescript@5.9.3))(eslint@9.39.2)(typescript@5.9.3)(vitest@4.0.16(@types/node@24.10.4)(happy-dom@20.1.0))
       '@wkovacs64/prettier-config':
         specifier: 4.2.3
         version: 4.2.3(prettier@3.7.4)
@@ -57,8 +57,8 @@ importers:
         specifier: 9.39.2
         version: 9.39.2
       happy-dom:
-        specifier: 20.0.11
-        version: 20.0.11
+        specifier: 20.1.0
+        version: 20.1.0
       npm-run-all2:
         specifier: 8.0.4
         version: 8.0.4
@@ -85,7 +85,7 @@ importers:
         version: 5.9.3
       vitest:
         specifier: 4.0.16
-        version: 4.0.16(@types/node@24.10.4)(happy-dom@20.0.11)
+        version: 4.0.16(@types/node@24.10.4)(happy-dom@20.1.0)
 
 packages:
 
@@ -1775,8 +1775,8 @@ packages:
   graceful-fs@4.2.11:
     resolution: {integrity: sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ==}
 
-  happy-dom@20.0.11:
-    resolution: {integrity: sha512-QsCdAUHAmiDeKeaNojb1OHOPF7NjcWPBR7obdu3NwH2a/oyQaLg5d0aaCy/9My6CdPChYF07dvz5chaXBGaD4g==}
+  happy-dom@20.1.0:
+    resolution: {integrity: sha512-ebvqjBqzenBk2LjzNEAzoj7yhw7rW/R2/wVevMu6Mrq3MXtcI/RUz4+ozpcOcqVLEWPqLfg2v9EAU7fFXZUUJw==}
     engines: {node: '>=20.0.0'}
 
   has-bigints@1.1.0:
@@ -3082,6 +3082,18 @@ packages:
     resolution: {integrity: sha512-BN22B5eaMMI9UMtjrGd5g5eCYPpCPDUy0FJXbYsaT5zYxjFOckS53SQDE3pWkVoWpHXVb3BrYcEN4Twa55B5cA==}
     engines: {node: '>=0.10.0'}
 
+  ws@8.19.0:
+    resolution: {integrity: sha512-blAT2mjOEIi0ZzruJfIhb3nps74PRWTCz1IjglWEEpQl5XS/UNama6u2/rjFkDDouqr4L67ry+1aGIALViWjDg==}
+    engines: {node: '>=10.0.0'}
+    peerDependencies:
+      bufferutil: ^4.0.1
+      utf-8-validate: '>=5.0.2'
+    peerDependenciesMeta:
+      bufferutil:
+        optional: true
+      utf-8-validate:
+        optional: true
+
   yallist@3.1.1:
     resolution: {integrity: sha512-a4UGQaWPH59mOXUYnAG2ewncQS4i4F43Tv3JoAM+s2VDAmS9NsK8GpDMLrCHPksFT7h3K6TOoUNn2pb7RoXx4g==}
 
@@ -3988,7 +4000,7 @@ snapshots:
   '@unrs/resolver-binding-win32-x64-msvc@1.11.1':
     optional: true
 
-  '@vitest/coverage-v8@4.0.16(vitest@4.0.16(@types/node@24.10.4)(happy-dom@20.0.11))':
+  '@vitest/coverage-v8@4.0.16(vitest@4.0.16(@types/node@24.10.4)(happy-dom@20.1.0))':
     dependencies:
       '@bcoe/v8-coverage': 1.0.2
       '@vitest/utils': 4.0.16
@@ -4001,18 +4013,18 @@ snapshots:
       obug: 2.1.1
       std-env: 3.10.0
       tinyrainbow: 3.0.3
-      vitest: 4.0.16(@types/node@24.10.4)(happy-dom@20.0.11)
+      vitest: 4.0.16(@types/node@24.10.4)(happy-dom@20.1.0)
     transitivePeerDependencies:
       - supports-color
 
-  '@vitest/eslint-plugin@1.5.2(eslint@9.39.2)(typescript@5.9.3)(vitest@4.0.16(@types/node@24.10.4)(happy-dom@20.0.11))':
+  '@vitest/eslint-plugin@1.5.2(eslint@9.39.2)(typescript@5.9.3)(vitest@4.0.16(@types/node@24.10.4)(happy-dom@20.1.0))':
     dependencies:
       '@typescript-eslint/scope-manager': 8.49.0
       '@typescript-eslint/utils': 8.49.0(eslint@9.39.2)(typescript@5.9.3)
       eslint: 9.39.2
     optionalDependencies:
       typescript: 5.9.3
-      vitest: 4.0.16(@types/node@24.10.4)(happy-dom@20.0.11)
+      vitest: 4.0.16(@types/node@24.10.4)(happy-dom@20.1.0)
     transitivePeerDependencies:
       - supports-color
 
@@ -4055,10 +4067,10 @@ snapshots:
       '@vitest/pretty-format': 4.0.16
       tinyrainbow: 3.0.3
 
-  '@wkovacs64/eslint-config@7.11.1(@testing-library/dom@10.4.1)(@typescript-eslint/utils@8.49.0(eslint@9.39.2)(typescript@5.9.3))(eslint@9.39.2)(typescript@5.9.3)(vitest@4.0.16(@types/node@24.10.4)(happy-dom@20.0.11))':
+  '@wkovacs64/eslint-config@7.11.1(@testing-library/dom@10.4.1)(@typescript-eslint/utils@8.49.0(eslint@9.39.2)(typescript@5.9.3))(eslint@9.39.2)(typescript@5.9.3)(vitest@4.0.16(@types/node@24.10.4)(happy-dom@20.1.0))':
     dependencies:
       '@eslint/js': 9.39.1
-      '@vitest/eslint-plugin': 1.5.2(eslint@9.39.2)(typescript@5.9.3)(vitest@4.0.16(@types/node@24.10.4)(happy-dom@20.0.11))
+      '@vitest/eslint-plugin': 1.5.2(eslint@9.39.2)(typescript@5.9.3)(vitest@4.0.16(@types/node@24.10.4)(happy-dom@20.1.0))
       eslint-plugin-astro: 1.5.0(eslint@9.39.2)
       eslint-plugin-import-x: 4.16.1(@typescript-eslint/utils@8.49.0(eslint@9.39.2)(typescript@5.9.3))(eslint@9.39.2)
       eslint-plugin-jest-dom: 5.5.0(@testing-library/dom@10.4.1)(eslint@9.39.2)
@@ -4990,11 +5002,16 @@ snapshots:
 
   graceful-fs@4.2.11: {}
 
-  happy-dom@20.0.11:
+  happy-dom@20.1.0:
     dependencies:
       '@types/node': 20.19.26
       '@types/whatwg-mimetype': 3.0.2
+      '@types/ws': 8.18.1
       whatwg-mimetype: 3.0.0
+      ws: 8.19.0
+    transitivePeerDependencies:
+      - bufferutil
+      - utf-8-validate
 
   has-bigints@1.1.0: {}
 
@@ -6286,7 +6303,7 @@ snapshots:
       '@types/node': 24.10.4
       fsevents: 2.3.3
 
-  vitest@4.0.16(@types/node@24.10.4)(happy-dom@20.0.11):
+  vitest@4.0.16(@types/node@24.10.4)(happy-dom@20.1.0):
     dependencies:
       '@vitest/expect': 4.0.16
       '@vitest/mocker': 4.0.16(vite@7.2.7(@types/node@24.10.4))
@@ -6310,7 +6327,7 @@ snapshots:
       why-is-node-running: 2.3.0
     optionalDependencies:
       '@types/node': 24.10.4
-      happy-dom: 20.0.11
+      happy-dom: 20.1.0
     transitivePeerDependencies:
       - jiti
       - less
@@ -6388,6 +6405,8 @@ snapshots:
       stackback: 0.0.2
 
   word-wrap@1.2.5: {}
+
+  ws@8.19.0: {}
 
   yallist@3.1.1: {}
 
