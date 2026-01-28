@@ -78,7 +78,7 @@
     "eslint": "9.39.2",
     "happy-dom": "20.3.4",
     "npm-run-all2": "8.0.4",
-    "prettier": "3.8.0",
+    "prettier": "3.8.1",
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "react-test-renderer": "19.2.3",
