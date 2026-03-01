@@ -1,9 +1,9 @@
-import * as React from 'react';
-import { mergeRefs } from '../merge-refs';
+import * as React from "react";
+import { mergeRefs } from "../merge-refs";
 
-describe('mergeRefs', () => {
-  it('merges multiple React ref objects', () => {
-    const input = React.createElement('input', { type: 'text' });
+describe("mergeRefs", () => {
+  it("merges multiple React ref objects", () => {
+    const input = React.createElement("input", { type: "text" });
     const ref1 = React.createRef();
     const ref2 = React.createRef();
 
@@ -13,8 +13,8 @@ describe('mergeRefs', () => {
     expect(ref2.current).toBe(input);
   });
 
-  it('merges React ref objects and function refs', () => {
-    const input = React.createElement('input', { type: 'text' });
+  it("merges React ref objects and function refs", () => {
+    const input = React.createElement("input", { type: "text" });
     const ref1 = React.createRef();
     const ref2 = vi.fn();
 
@@ -25,7 +25,7 @@ describe('mergeRefs', () => {
   });
 
   it("doesn't crash for invalid refs", () => {
-    const input = React.createElement('input', { type: 'text' });
+    const input = React.createElement("input", { type: "text" });
     const ref1 = null;
     const ref2 = {};
 

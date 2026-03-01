@@ -61,7 +61,7 @@ npm install use-stepper # or, with yarn: yarn add use-stepper
 ## Usage
 
 ```js
-import { useStepper } from 'use-stepper';
+import { useStepper } from "use-stepper";
 
 function MyStepper() {
   const { getFormProps, getInputProps, getIncrementProps, getDecrementProps } = useStepper();
@@ -249,17 +249,14 @@ If you know of any others, please send a pull request to add them here.
 
 [npm-image]: https://img.shields.io/npm/v/use-stepper.svg?style=flat-square
 [npm-url]: https://www.npmjs.com/package/use-stepper
-[ci-image]:
-  https://img.shields.io/github/actions/workflow/status/wKovacs64/use-stepper/ci.yml?logo=github&style=flat-square
+[ci-image]: https://img.shields.io/github/actions/workflow/status/wKovacs64/use-stepper/ci.yml?logo=github&style=flat-square
 [ci-url]: https://github.com/wKovacs64/use-stepper/actions?query=workflow%3Aci
-[coverage-image]:
-  https://img.shields.io/codecov/c/github/wKovacs64/use-stepper/main.svg?style=flat-square
+[coverage-image]: https://img.shields.io/codecov/c/github/wKovacs64/use-stepper/main.svg?style=flat-square
 [coverage-url]: https://codecov.io/gh/wKovacs64/use-stepper/branch/main
 [react]: https://reactjs.org/
 [hooks-intro]: https://reactjs.org/docs/hooks-intro.html
 [npm]: https://www.npmjs.com/
-[kent-prop-getters]:
-  https://kentcdodds.com/blog/how-to-give-rendering-control-to-users-with-prop-getters
+[kent-prop-getters]: https://kentcdodds.com/blog/how-to-give-rendering-control-to-users-with-prop-getters
 [use-reducer]: https://reactjs.org/docs/hooks-reference.html#usereducer
 [kent-state-reducer]: https://kentcdodds.com/blog/the-state-reducer-pattern
 [zag-number-input]: https://zagjs.com/components/react/number-input
