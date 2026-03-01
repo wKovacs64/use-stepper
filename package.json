@@ -1,24 +1,37 @@
 {
   "name": "use-stepper",
   "version": "4.0.2",
+  "private": false,
   "description": "React hook to manage a numeric stepper/spinbutton",
   "keywords": [
-    "react",
+    "counter",
+    "decrement",
     "hook",
     "hooks",
-    "stepper",
-    "counter",
     "increment",
-    "decrement",
     "input",
-    "spinbutton"
+    "react",
+    "spinbutton",
+    "stepper"
   ],
+  "homepage": "https://github.com/wKovacs64/use-stepper#readme",
+  "bugs": {
+    "url": "https://github.com/wKovacs64/use-stepper/issues"
+  },
+  "license": "MIT",
   "author": {
     "name": "Justin Hall",
     "email": "justin.r.hall@gmail.com"
   },
   "contributors": [],
-  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wKovacs64/use-stepper.git"
+  },
+  "files": [
+    "dist",
+    "!dist/**/__tests__"
+  ],
   "type": "module",
   "main": "dist/use-stepper.cjs",
   "module": "dist/use-stepper.js",
@@ -26,26 +39,17 @@
     "import": "./dist/use-stepper.js",
     "require": "./dist/use-stepper.cjs"
   },
-  "files": [
-    "dist",
-    "!dist/**/__tests__"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/wKovacs64/use-stepper.git"
+  "publishConfig": {
+    "access": "public"
   },
-  "bugs": {
-    "url": "https://github.com/wKovacs64/use-stepper/issues"
-  },
-  "homepage": "https://github.com/wKovacs64/use-stepper#readme",
   "scripts": {
     "build": "tsup ./src/use-stepper.ts --format cjs,esm --dts --sourcemap --clean",
     "changeset": "changeset",
     "changeset:version": "changeset version && pnpm install",
     "changeset:publish": "changeset publish",
     "clean": "rimraf dist coverage",
-    "format": "prettier --cache --write .",
-    "format:check": "prettier --cache --check .",
+    "format": "oxfmt --write .",
+    "format:check": "oxfmt --check .",
     "lint": "eslint --cache --cache-location ./node_modules/.cache/eslint .",
     "prepare": "pnpm run --silent build",
     "prepublishOnly": "run-s --silent lint typecheck test:coverage",
@@ -54,11 +58,6 @@
     "test:watch": "vitest watch",
     "typecheck": "tsc"
   },
-  "private": false,
-  "publishConfig": {
-    "access": "public"
-  },
-  "packageManager": "pnpm@10.30.1",
   "devDependencies": {
     "@changesets/changelog-github": "0.5.2",
     "@changesets/cli": "2.29.8",
@@ -72,13 +71,12 @@
     "@types/ws": "8.18.1",
     "@vitest/coverage-v8": "4.0.18",
     "@wkovacs64/eslint-config": "7.13.0",
-    "@wkovacs64/prettier-config": "4.2.4",
     "cross-env": "10.1.0",
     "doctoc": "2.3.0",
     "eslint": "9.39.3",
     "happy-dom": "20.7.0",
     "npm-run-all2": "8.0.4",
-    "prettier": "3.8.1",
+    "oxfmt": "0.35.0",
     "react": "19.2.4",
     "react-dom": "19.2.4",
     "react-test-renderer": "19.2.4",
@@ -89,5 +87,6 @@
   },
   "peerDependencies": {
     "react": ">= 16.8.0"
-  }
+  },
+  "packageManager": "pnpm@10.30.1"
 }

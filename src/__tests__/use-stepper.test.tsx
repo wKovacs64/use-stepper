@@ -1,7 +1,7 @@
-import * as React from 'react';
-import { act, render, renderHook, screen, type RenderResult } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
-import { useStepper, type Options, type State, type Action } from '../use-stepper';
+import * as React from "react";
+import { act, render, renderHook, screen, type RenderResult } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
+import { useStepper, type Options, type State, type Action } from "../use-stepper";
 
 function Counter(props: Options): React.JSX.Element {
   const { setValue, getFormProps, getInputProps, getIncrementProps, getDecrementProps } =
@@ -16,7 +16,7 @@ function Counter(props: Options): React.JSX.Element {
       <button type="button" {...getIncrementProps()}>
         increment
       </button>
-      <button data-testid="set-value-to-42" type="button" onClick={() => setValue('42')}>
+      <button data-testid="set-value-to-42" type="button" onClick={() => setValue("42")}>
         set value to 42
       </button>
       <button type="submit">submit</button>
@@ -26,26 +26,26 @@ function Counter(props: Options): React.JSX.Element {
 
 function renderForm(options: Options = {}): { value: string } & RenderResult {
   const utils = render(<Counter {...options} />);
-  const { value } = screen.getByRole<HTMLInputElement>('spinbutton');
+  const { value } = screen.getByRole<HTMLInputElement>("spinbutton");
   return { value, ...utils };
 }
 
-describe('useStepper', () => {
-  it('exports a function', () => {
+describe("useStepper", () => {
+  it("exports a function", () => {
     expect(useStepper).toBeInstanceOf(Function);
   });
 
-  it('returns a value even when no options are specified', () => {
+  it("returns a value even when no options are specified", () => {
     const { result } = renderHook(() => useStepper());
     expect(Number.isNaN(Number.parseFloat(result.current.value))).toBeFalsy();
   });
 
-  it('honors the defaultValue parameter', () => {
+  it("honors the defaultValue parameter", () => {
     const { result } = renderHook(() => useStepper({ defaultValue: 42 }));
-    expect(result.current.value).toBe('42');
+    expect(result.current.value).toBe("42");
   });
 
-  it('returns the correct properties', () => {
+  it("returns the correct properties", () => {
     const { result } = renderHook(() => useStepper());
     expect(result.current).toMatchInlineSnapshot(`
       {
@@ -61,7 +61,7 @@ describe('useStepper', () => {
     `);
   });
 
-  it('provides the correct form props in getFormProps', () => {
+  it("provides the correct form props in getFormProps", () => {
     const { result } = renderHook(() => useStepper());
     expect(result.current.getFormProps()).toMatchInlineSnapshot(`
       {
@@ -70,7 +70,7 @@ describe('useStepper', () => {
     `);
   });
 
-  it('provides the correct input props in getInputProps', () => {
+  it("provides the correct input props in getInputProps", () => {
     const { result } = renderHook(() => useStepper());
     expect(result.current.getInputProps()).toMatchInlineSnapshot(`
       {
@@ -93,7 +93,7 @@ describe('useStepper', () => {
     `);
   });
 
-  it('provides the correct decrement props in getDecrementProps', () => {
+  it("provides the correct decrement props in getDecrementProps", () => {
     const { result } = renderHook(() => useStepper());
     expect(result.current.getDecrementProps()).toMatchInlineSnapshot(`
       {
@@ -105,7 +105,7 @@ describe('useStepper', () => {
     `);
   });
 
-  it('provides the correct increment props in getIncrementProps', () => {
+  it("provides the correct increment props in getIncrementProps", () => {
     const { result } = renderHook(() => useStepper());
     expect(result.current.getIncrementProps()).toMatchInlineSnapshot(`
       {
@@ -117,7 +117,7 @@ describe('useStepper', () => {
     `);
   });
 
-  it('constrains setValue calls to min and max', () => {
+  it("constrains setValue calls to min and max", () => {
     const { result } = renderHook(() =>
       useStepper({
         min: 1,
@@ -126,14 +126,14 @@ describe('useStepper', () => {
       }),
     );
 
-    expect(result.current.value).toBe('1');
-    act(() => result.current.setValue('2'));
-    expect(result.current.value).toBe('2');
-    act(() => result.current.setValue('3'));
-    expect(result.current.value).toBe('2');
+    expect(result.current.value).toBe("1");
+    act(() => result.current.setValue("2"));
+    expect(result.current.value).toBe("2");
+    act(() => result.current.setValue("3"));
+    expect(result.current.value).toBe("2");
   });
 
-  it('constrains increment/decrement to min and max', () => {
+  it("constrains increment/decrement to min and max", () => {
     const { result } = renderHook(() =>
       useStepper({
         min: 1,
@@ -142,39 +142,39 @@ describe('useStepper', () => {
       }),
     );
 
-    expect(result.current.value).toBe('1');
+    expect(result.current.value).toBe("1");
     expect(result.current.getDecrementProps().disabled).toBeTruthy();
     act(() => result.current.decrement());
-    expect(result.current.value).toBe('1');
+    expect(result.current.value).toBe("1");
     act(() => result.current.increment());
-    expect(result.current.value).toBe('2');
+    expect(result.current.value).toBe("2");
     expect(result.current.getIncrementProps().disabled).toBeTruthy();
     act(() => result.current.increment());
-    expect(result.current.value).toBe('2');
+    expect(result.current.value).toBe("2");
   });
 
-  it('handles keyboard events', async () => {
+  it("handles keyboard events", async () => {
     const user = userEvent.setup();
 
     renderForm({ defaultValue: 5, min: 1, max: 10, step: 0.5 });
-    const input = screen.getByRole<HTMLInputElement>('spinbutton');
+    const input = screen.getByRole<HTMLInputElement>("spinbutton");
 
     await user.click(input);
-    await user.keyboard('{ArrowUp}');
-    expect(input).toHaveValue('5.5');
-    await user.keyboard('{ArrowDown}{ArrowDown}{ArrowDown}');
-    expect(input).toHaveValue('4');
-    await user.keyboard('{Home}');
-    expect(input).toHaveValue('1');
-    await user.keyboard('{End}');
-    expect(input).toHaveValue('10');
+    await user.keyboard("{ArrowUp}");
+    expect(input).toHaveValue("5.5");
+    await user.keyboard("{ArrowDown}{ArrowDown}{ArrowDown}");
+    expect(input).toHaveValue("4");
+    await user.keyboard("{Home}");
+    expect(input).toHaveValue("1");
+    await user.keyboard("{End}");
+    expect(input).toHaveValue("10");
   });
 
-  it('selects input value on focus', async () => {
+  it("selects input value on focus", async () => {
     const user = userEvent.setup();
 
     renderForm();
-    const input = screen.getByRole<HTMLInputElement>('spinbutton');
+    const input = screen.getByRole<HTMLInputElement>("spinbutton");
 
     expect(input.selectionStart).toBe(input.value.length);
     expect(input.selectionEnd).toBe(input.value.length);
@@ -185,14 +185,14 @@ describe('useStepper', () => {
     expect(input.selectionEnd).toBe(input.value.length);
   });
 
-  it('updates current value on blur', async () => {
+  it("updates current value on blur", async () => {
     const user = userEvent.setup();
 
     const min = 1;
     const max = 10;
     const defaultValue = 5;
     renderForm({ defaultValue, min, max });
-    const input = screen.getByRole<HTMLInputElement>('spinbutton');
+    const input = screen.getByRole<HTMLInputElement>("spinbutton");
 
     expect(input).toHaveValue(String(defaultValue));
 
@@ -212,44 +212,44 @@ describe('useStepper', () => {
 
     await user.click(input);
     await user.clear(input);
-    await user.type(input, '-');
+    await user.type(input, "-");
     await user.tab();
 
     expect(input).toHaveValue(String(defaultValue));
   });
 
-  it('blurs input on submit', async () => {
+  it("blurs input on submit", async () => {
     const user = userEvent.setup();
 
     renderForm();
-    const input = screen.getByRole('spinbutton');
+    const input = screen.getByRole("spinbutton");
 
     input.focus();
     expect(input).toHaveFocus();
 
-    await user.click(screen.getByRole('button', { name: /submit/i }));
+    await user.click(screen.getByRole("button", { name: /submit/i }));
 
     expect(input).not.toHaveFocus();
   });
 
-  it('handles decimals', () => {
+  it("handles decimals", () => {
     const { result } = renderHook(() => useStepper({ defaultValue: 1, step: 0.25 }));
 
-    expect(result.current.value).toBe('1');
+    expect(result.current.value).toBe("1");
     act(() => result.current.decrement());
-    expect(result.current.value).toBe('0.75');
+    expect(result.current.value).toBe("0.75");
     act(() => result.current.increment());
     act(() => result.current.increment());
-    expect(result.current.value).toBe('1.25');
-    act(() => result.current.setValue('-0.5'));
-    expect(result.current.value).toBe('-0.5');
+    expect(result.current.value).toBe("1.25");
+    act(() => result.current.setValue("-0.5"));
+    expect(result.current.value).toBe("-0.5");
     act(() => result.current.decrement());
-    expect(result.current.value).toBe('-0.75');
+    expect(result.current.value).toBe("-0.75");
   });
 
-  it('accepts a custom reducer', () => {
-    const hasCents = (str: string) => str.split('.').length === 2;
-    const dollars = (str: string) => str.split('.')[0];
+  it("accepts a custom reducer", () => {
+    const hasCents = (str: string) => str.split(".").length === 2;
+    const dollars = (str: string) => str.split(".")[0];
 
     function getPreviousEvenDollar(value: number) {
       const str = String(value);
@@ -293,53 +293,53 @@ describe('useStepper', () => {
 
     const { result } = renderHook(() => useStepper({ stateReducer: dollarReducer }));
 
-    act(() => result.current.setValue('4.25'));
-    expect(result.current.value).toBe('4.25');
+    act(() => result.current.setValue("4.25"));
+    expect(result.current.value).toBe("4.25");
     act(() => result.current.increment());
-    expect(result.current.value).toBe('5');
+    expect(result.current.value).toBe("5");
 
-    act(() => result.current.setValue('0.25'));
-    expect(result.current.value).toBe('0.25');
+    act(() => result.current.setValue("0.25"));
+    expect(result.current.value).toBe("0.25");
     act(() => result.current.decrement());
-    expect(result.current.value).toBe('0');
+    expect(result.current.value).toBe("0");
   });
 
-  describe('enableReinitialize', () => {
-    it('true: value is updated to new default if defaultValue changes and value has not been modified', () => {
+  describe("enableReinitialize", () => {
+    it("true: value is updated to new default if defaultValue changes and value has not been modified", () => {
       const { result, rerender } = renderHook((opts) => useStepper(opts), {
         initialProps: { enableReinitialize: true, defaultValue: 33 },
       });
 
-      expect(result.current.value).toBe('33');
+      expect(result.current.value).toBe("33");
       rerender({ enableReinitialize: true, defaultValue: 42 });
-      expect(result.current.value).toBe('42');
+      expect(result.current.value).toBe("42");
     });
 
-    it('true: value is not updated to new default if defaultValue changes and value has been modified', () => {
+    it("true: value is not updated to new default if defaultValue changes and value has been modified", () => {
       const { result, rerender } = renderHook((opts) => useStepper(opts), {
         initialProps: { enableReinitialize: true, defaultValue: 33 },
       });
 
-      expect(result.current.value).toBe('33');
+      expect(result.current.value).toBe("33");
       act(() => result.current.increment());
-      expect(result.current.value).toBe('34');
+      expect(result.current.value).toBe("34");
       rerender({ enableReinitialize: true, defaultValue: 42 });
-      expect(result.current.value).toBe('34');
+      expect(result.current.value).toBe("34");
     });
 
-    it('false: value remains unchanged if defaultValue changes', () => {
+    it("false: value remains unchanged if defaultValue changes", () => {
       const { result, rerender } = renderHook((opts) => useStepper(opts), {
         initialProps: { defaultValue: 33 },
       });
 
-      expect(result.current.value).toBe('33');
+      expect(result.current.value).toBe("33");
       rerender({ defaultValue: 42 });
-      expect(result.current.value).toBe('33');
+      expect(result.current.value).toBe("33");
     });
   });
 
-  describe('should work with decimals', () => {
-    it('when the step is a decimal', () => {
+  describe("should work with decimals", () => {
+    it("when the step is a decimal", () => {
       const { result } = renderHook((opts) => useStepper(opts), {
         initialProps: {
           step: 0.11,
@@ -347,18 +347,18 @@ describe('useStepper', () => {
         },
       });
 
-      expect(result.current.value).toBe('3');
+      expect(result.current.value).toBe("3");
       act(() => result.current.increment());
-      expect(result.current.value).toBe('3.11');
+      expect(result.current.value).toBe("3.11");
       act(() => result.current.increment());
-      expect(result.current.value).toBe('3.22');
+      expect(result.current.value).toBe("3.22");
       act(() => result.current.decrement());
-      expect(result.current.value).toBe('3.11');
+      expect(result.current.value).toBe("3.11");
       act(() => result.current.decrement());
-      expect(result.current.value).toBe('3');
+      expect(result.current.value).toBe("3");
     });
 
-    it('when the value is a decimal', () => {
+    it("when the value is a decimal", () => {
       const { result } = renderHook((opts) => useStepper(opts), {
         initialProps: {
           step: 1,
@@ -367,13 +367,13 @@ describe('useStepper', () => {
       });
 
       act(() => result.current.increment());
-      expect(result.current.value).toBe('1.5');
+      expect(result.current.value).toBe("1.5");
       act(() => result.current.increment());
-      expect(result.current.value).toBe('2.5');
+      expect(result.current.value).toBe("2.5");
       act(() => result.current.decrement());
-      expect(result.current.value).toBe('1.5');
+      expect(result.current.value).toBe("1.5");
       act(() => result.current.decrement());
-      expect(result.current.value).toBe('0.5');
+      expect(result.current.value).toBe("0.5");
     });
   });
 });

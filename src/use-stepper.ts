@@ -1,14 +1,14 @@
-import * as React from 'react';
-import { callAll } from './utils/call-all';
-import { mergeRefs } from './utils/merge-refs';
-import { sum } from './utils/decimals';
-import { usePrevious } from './utils/use-previous';
+import * as React from "react";
+import { callAll } from "./utils/call-all";
+import { mergeRefs } from "./utils/merge-refs";
+import { sum } from "./utils/decimals";
+import { usePrevious } from "./utils/use-previous";
 
 const actionTypes = {
-  increment: 'increment',
-  decrement: 'decrement',
-  coerce: 'coerce',
-  setValue: 'setValue',
+  increment: "increment",
+  decrement: "decrement",
+  coerce: "coerce",
+  setValue: "setValue",
 };
 
 export interface State {
@@ -72,7 +72,7 @@ export const useStepper: UseStepper = ({
 
   const validValueClosestTo = React.useCallback(
     (newValue: number | string) => {
-      const newValueNum = typeof newValue === 'number' ? newValue : Number.parseFloat(newValue);
+      const newValueNum = typeof newValue === "number" ? newValue : Number.parseFloat(newValue);
       return String(Math.min(max, Math.max(newValueNum, min)));
     },
     [max, min],
@@ -169,24 +169,24 @@ export const useStepper: UseStepper = ({
 
   function handleKeyDown(ev: React.KeyboardEvent<HTMLInputElement>) {
     switch (ev.key) {
-      case 'ArrowUp': {
+      case "ArrowUp": {
         dispatch({ type: actionTypes.coerce });
         handleIncrement();
         ev.preventDefault();
         break;
       }
-      case 'ArrowDown': {
+      case "ArrowDown": {
         dispatch({ type: actionTypes.coerce });
         handleDecrement();
         ev.preventDefault();
         break;
       }
-      case 'Home': {
+      case "Home": {
         setValueClosestTo(String(min));
         ev.preventDefault();
         break;
       }
-      case 'End': {
+      case "End": {
         setValueClosestTo(String(max));
         ev.preventDefault();
         break;
@@ -216,7 +216,7 @@ export const useStepper: UseStepper = ({
     const { onClick, ...otherIncrementProps } = incrementProps;
     return {
       ...otherIncrementProps,
-      'aria-hidden': true,
+      "aria-hidden": true,
       tabIndex: -1,
       disabled: value === String(max),
       onClick: callAll(handleIncrement, onClick),
@@ -227,7 +227,7 @@ export const useStepper: UseStepper = ({
     const { onClick, ...otherButtonProps } = decrementProps;
     return {
       ...otherButtonProps,
-      'aria-hidden': true,
+      "aria-hidden": true,
       tabIndex: -1,
       disabled: value === String(min),
       onClick: callAll(handleDecrement, onClick),
@@ -238,17 +238,17 @@ export const useStepper: UseStepper = ({
     const { ref, onBlur, onFocus, onChange, onKeyDown, ...otherInputProps } = inputProps;
     return {
       ...otherInputProps,
-      role: 'spinbutton',
-      'aria-valuemin': min,
-      'aria-valuemax': max,
-      'aria-valuenow': Number.isNaN(Number.parseFloat(value))
+      role: "spinbutton",
+      "aria-valuemin": min,
+      "aria-valuemax": max,
+      "aria-valuenow": Number.isNaN(Number.parseFloat(value))
         ? undefined
         : Number.parseFloat(value),
-      'aria-valuetext': value,
-      autoComplete: 'off',
-      autoCorrect: 'off',
-      spellCheck: 'false',
-      type: 'text',
+      "aria-valuetext": value,
+      autoComplete: "off",
+      autoCorrect: "off",
+      spellCheck: "false",
+      type: "text",
       value: String(value),
       ref: mergeRefs(ref, inputRef),
       onBlur: callAll(handleBlur, onBlur),
