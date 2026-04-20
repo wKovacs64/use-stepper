@@ -74,7 +74,7 @@
     "cross-env": "10.1.0",
     "doctoc": "2.4.0",
     "eslint": "9.39.4",
-    "happy-dom": "20.8.9",
+    "happy-dom": "20.9.0",
     "npm-run-all2": "8.0.4",
     "oxfmt": "0.45.0",
     "react": "19.2.5",
