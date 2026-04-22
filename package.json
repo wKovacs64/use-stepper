@@ -72,7 +72,7 @@
     "@vitest/coverage-v8": "4.1.4",
     "@wkovacs64/eslint-config": "7.14.0",
     "cross-env": "10.1.0",
-    "doctoc": "2.4.0",
+    "doctoc": "2.4.1",
     "eslint": "9.39.4",
     "happy-dom": "20.9.0",
     "npm-run-all2": "8.0.4",
