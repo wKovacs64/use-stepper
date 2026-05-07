@@ -304,6 +304,36 @@ describe("useStepper", () => {
     expect(result.current.value).toBe("0");
   });
 
+  it("delegates to the instance default reducer from a custom reducer", () => {
+    function delegateReducer(state: State, action: Action) {
+      return useStepper.defaultReducer(state, action);
+    }
+
+    const { result } = renderHook(() => useStepper({ step: 5, stateReducer: delegateReducer }));
+
+    act(() => result.current.increment());
+    expect(result.current.value).toBe("5");
+  });
+
+  it("delegates to the matching instance default reducer with multiple steppers", () => {
+    function delegateReducer(state: State, action: Action) {
+      return useStepper.defaultReducer(state, action);
+    }
+
+    const { result } = renderHook(() => ({
+      byTwo: useStepper({ step: 2, stateReducer: delegateReducer }),
+      byFive: useStepper({ step: 5, stateReducer: delegateReducer }),
+    }));
+
+    act(() => result.current.byTwo.increment());
+    expect(result.current.byTwo.value).toBe("2");
+    expect(result.current.byFive.value).toBe("0");
+
+    act(() => result.current.byFive.increment());
+    expect(result.current.byTwo.value).toBe("2");
+    expect(result.current.byFive.value).toBe("5");
+  });
+
   describe("enableReinitialize", () => {
     it("true: value is updated to new default if defaultValue changes and value has not been modified", () => {
       const { result, rerender } = renderHook((opts) => useStepper(opts), {
