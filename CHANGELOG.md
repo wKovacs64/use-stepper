@@ -1,5 +1,11 @@
 # Change Log
 
+## 4.0.3
+
+### Patch Changes
+
+- [#276](https://github.com/wKovacs64/use-stepper/pull/276) [`a1a9cdd`](https://github.com/wKovacs64/use-stepper/commit/a1a9cdde01eddcb1c5b3ceffc54043a7e0048a71) Thanks [@wKovacs64](https://github.com/wKovacs64)! - Fix custom reducer delegation across multiple stepper instances. Previously, multiple instances would erroneously share whichever default reducer was assigned by the most recently rendered instance.
+
 ## 4.0.2
 
 ### Patch Changes
