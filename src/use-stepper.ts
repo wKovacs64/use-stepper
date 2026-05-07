@@ -11,6 +11,13 @@ const actionTypes = {
   setValue: "setValue",
 };
 
+const defaultOptions = {
+  defaultValue: 0,
+  step: 1,
+  min: -Number.MAX_VALUE,
+  max: Number.MAX_VALUE,
+};
+
 export interface State {
   value: string;
 }
@@ -58,15 +65,92 @@ export interface UseStepper {
   defaultReducer: (state: State, action: Action) => State;
 }
 
-// @ts-expect-error (`actionTypes` and `defaultReducer` are added at invocation time)
-export const useStepper: UseStepper = ({
-  defaultValue = 0,
-  step = 1,
-  min = -Number.MAX_VALUE,
-  max = Number.MAX_VALUE,
+function getDefaultReducer({
+  defaultValue,
+  step,
+  min,
+  max,
+}: Pick<Required<Options>, "defaultValue" | "step" | "min" | "max">) {
+  const validValueClosestTo = (newValue: number | string) => {
+    const newValueNum = typeof newValue === "number" ? newValue : Number.parseFloat(newValue);
+    return String(Math.min(max, Math.max(newValueNum, min)));
+  };
+
+  return (state: State, action: Action): State => {
+    const currentNumericValue = Number.parseFloat(state.value);
+    switch (action.type) {
+      case actionTypes.increment: {
+        const newValue = validValueClosestTo(sum(currentNumericValue, step));
+        if (newValue !== state.value) {
+          return { value: newValue };
+        }
+        return state;
+      }
+      case actionTypes.decrement: {
+        const newValue = validValueClosestTo(sum(currentNumericValue, -step));
+        if (newValue !== state.value) {
+          return { value: newValue };
+        }
+        return state;
+      }
+      case actionTypes.coerce: {
+        if (Number.isNaN(currentNumericValue)) {
+          return { value: String(defaultValue) };
+        }
+        const newValue = validValueClosestTo(currentNumericValue);
+        if (newValue !== state.value) {
+          return { value: newValue };
+        }
+        return state;
+      }
+      case actionTypes.setValue: {
+        if (action.payload !== undefined && action.payload !== state.value) {
+          return { value: action.payload };
+        }
+        return state;
+      }
+      /* v8 ignore next -- @preserve */
+      default: {
+        throw new Error(`Unsupported action type: ${action.type}`);
+      }
+    }
+  };
+}
+
+const fallbackDefaultReducer = getDefaultReducer(defaultOptions);
+let activeDefaultReducer = fallbackDefaultReducer;
+
+function defaultReducer(state: State, action: Action): State {
+  return activeDefaultReducer(state, action);
+}
+
+function getReducer(
+  userReducer: Options["stateReducer"],
+  instanceDefaultReducer: (state: State, action: Action) => State,
+) {
+  if (userReducer === undefined) {
+    return instanceDefaultReducer;
+  }
+
+  return (state: State, action: Action): State => {
+    const previousDefaultReducer = activeDefaultReducer;
+    activeDefaultReducer = instanceDefaultReducer;
+    try {
+      return userReducer(state, action);
+    } finally {
+      activeDefaultReducer = previousDefaultReducer;
+    }
+  };
+}
+
+const useStepperFunction = ({
+  defaultValue = defaultOptions.defaultValue,
+  step = defaultOptions.step,
+  min = defaultOptions.min,
+  max = defaultOptions.max,
   enableReinitialize = false,
   stateReducer: userReducer,
-} = {}) => {
+}: Options = {}) => {
   const previousDefaultValue = usePrevious(defaultValue);
   const inputRef = React.useRef<HTMLInputElement>(null);
 
@@ -80,54 +164,17 @@ export const useStepper: UseStepper = ({
 
   const initialState: State = { value: String(defaultValue) };
 
-  const defaultReducer = React.useCallback(
-    (state: State, action: Action): State => {
-      const currentNumericValue = Number.parseFloat(state.value);
-      switch (action.type) {
-        case actionTypes.increment: {
-          const newValue = validValueClosestTo(sum(currentNumericValue, step));
-          if (newValue !== state.value) {
-            return { value: newValue };
-          }
-          return state;
-        }
-        case actionTypes.decrement: {
-          const newValue = validValueClosestTo(sum(currentNumericValue, -step));
-          if (newValue !== state.value) {
-            return { value: newValue };
-          }
-          return state;
-        }
-        case actionTypes.coerce: {
-          if (Number.isNaN(currentNumericValue)) {
-            return { value: String(defaultValue) };
-          }
-          const newValue = validValueClosestTo(currentNumericValue);
-          if (newValue !== state.value) {
-            return { value: newValue };
-          }
-          return state;
-        }
-        case actionTypes.setValue: {
-          if (action.payload !== undefined && action.payload !== state.value) {
-            return { value: action.payload };
-          }
-          return state;
-        }
-        /* v8 ignore next -- @preserve */
-        default: {
-          throw new Error(`Unsupported action type: ${action.type}`);
-        }
-      }
-    },
-    [validValueClosestTo, defaultValue, step],
+  const instanceDefaultReducer = React.useMemo(
+    () => getDefaultReducer({ defaultValue, step, min, max }),
+    [defaultValue, step, min, max],
   );
 
-  // Expose our internal/default reducer and action types
-  useStepper.defaultReducer = defaultReducer;
-  useStepper.actionTypes = actionTypes;
+  const reducer = React.useMemo(
+    () => getReducer(userReducer, instanceDefaultReducer),
+    [userReducer, instanceDefaultReducer],
+  );
 
-  const [{ value }, dispatch] = React.useReducer(userReducer || defaultReducer, initialState);
+  const [{ value }, dispatch] = React.useReducer(reducer, initialState);
 
   const setValue = React.useCallback((newValue: string) => {
     dispatch({
@@ -290,3 +337,8 @@ export const useStepper: UseStepper = ({
     getDecrementProps,
   };
 };
+
+export const useStepper: UseStepper = Object.assign(useStepperFunction, {
+  actionTypes,
+  defaultReducer,
+});
