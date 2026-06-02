@@ -3,7 +3,6 @@
 _React hook to manage a numeric stepper/spinbutton_
 
 [![npm Version][npm-image]][npm-url] [![Build Status][ci-image]][ci-url]
-[![Code Coverage][coverage-image]][coverage-url]
 
 ## The problem
 
@@ -251,8 +250,6 @@ If you know of any others, please send a pull request to add them here.
 [npm-url]: https://www.npmjs.com/package/use-stepper
 [ci-image]: https://img.shields.io/github/actions/workflow/status/wKovacs64/use-stepper/ci.yml?logo=github&style=flat-square
 [ci-url]: https://github.com/wKovacs64/use-stepper/actions?query=workflow%3Aci
-[coverage-image]: https://img.shields.io/codecov/c/github/wKovacs64/use-stepper/main.svg?style=flat-square
-[coverage-url]: https://codecov.io/gh/wKovacs64/use-stepper/branch/main
 [react]: https://reactjs.org/
 [hooks-intro]: https://reactjs.org/docs/hooks-intro.html
 [npm]: https://www.npmjs.com/
