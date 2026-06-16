@@ -72,10 +72,10 @@
     "@vitest/coverage-v8": "4.1.8",
     "@wkovacs64/eslint-config": "7.14.1",
     "cross-env": "10.1.0",
-    "doctoc": "2.4.1",
+    "doctoc": "2.5.0",
     "eslint": "9.39.4",
-    "happy-dom": "20.10.2",
-    "npm-run-all2": "9.0.1",
+    "happy-dom": "20.10.3",
+    "npm-run-all2": "9.0.2",
     "oxfmt": "0.54.0",
     "react": "19.2.7",
     "react-dom": "19.2.7",
@@ -88,5 +88,5 @@
   "peerDependencies": {
     "react": ">= 16.8.0"
   },
-  "packageManager": "pnpm@11.5.3"
+  "packageManager": "pnpm@11.6.0"
 }

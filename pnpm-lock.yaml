@@ -48,17 +48,17 @@ importers:
         specifier: 10.1.0
         version: 10.1.0
       doctoc:
-        specifier: 2.4.1
-        version: 2.4.1
+        specifier: 2.5.0
+        version: 2.5.0
       eslint:
         specifier: 9.39.4
         version: 9.39.4
       happy-dom:
-        specifier: 20.10.2
-        version: 20.10.2
+        specifier: 20.10.3
+        version: 20.10.3
       npm-run-all2:
-        specifier: 9.0.1
-        version: 9.0.1
+        specifier: 9.0.2
+        version: 9.0.2
       oxfmt:
         specifier: 0.54.0
         version: 0.54.0
@@ -82,7 +82,7 @@ importers:
         version: 6.0.3
       vitest:
         specifier: 4.1.8
-        version: 4.1.8(@types/node@24.13.2)(@vitest/coverage-v8@4.1.8)(happy-dom@20.10.2)(vite@7.2.7(@types/node@24.13.2))
+        version: 4.1.8(@types/node@24.13.2)(@vitest/coverage-v8@4.1.8)(happy-dom@20.10.3)(vite@7.2.7(@types/node@24.13.2))
 
 packages:
 
@@ -935,11 +935,11 @@ packages:
     peerDependencies:
       '@testing-library/dom': '>=7.21.4'
 
-  '@textlint/ast-node-types@15.5.4':
-    resolution: {integrity: sha512-bVtB6VEy9U9DpW8cTt25k5T+lz86zV5w6ImePZqY1AXzSuPhqQNT77lkMPxonXzUducEIlSvUu3o7sKw3y9+Sw==}
+  '@textlint/ast-node-types@15.7.1':
+    resolution: {integrity: sha512-Wii5UgUKFEh9Uv6wbq1zr4/Kf+dtjiUuzPrrXzKp8H+ifkvKNzi23V4Nz+6wVyHQn5T28AFuc8VH8OtzvGYecA==}
 
-  '@textlint/markdown-to-ast@15.5.4':
-    resolution: {integrity: sha512-BBAmPYAQ2Y3sqJoivT7S+tTqksoKKi2qwLOPRYVPcAM55B3x/8eLxQDd0qARo7XvJKscDawwpfAGcLOR9n6SBQ==}
+  '@textlint/markdown-to-ast@15.7.1':
+    resolution: {integrity: sha512-9DLSah7g6mYNHvO6pssLdFvFPAl3HHyEIm4RE5of/1QN9FXJXDgdOcVV3YpQmbYT/YntuIvOQiqOndCSPWTW2A==}
 
   '@tybys/wasm-util@0.10.1':
     resolution: {integrity: sha512-9tTaPJLSiejZKx+Bmog4uSubteqTvFrVrURwkmHixBo0G4seD0zUxp98E1DzUBJxLQ3NPwXrGKDiVjwx/DpPsg==}
@@ -1264,8 +1264,8 @@ packages:
   ajv@6.14.0:
     resolution: {integrity: sha512-IWrosm/yrn43eiKqkfkHis7QioDleaXQHdDVPKg0FSwwd/DuvyX79TZnFOnYpB7dcsFAMmtFztZuXPDvSePkFw==}
 
-  anchor-markdown-header@0.8.3:
-    resolution: {integrity: sha512-i2JealiBR1stamxKBE+LDebJ5p/0GPffwEs05KaYqG+3oS25Semk4AE+YG5lUsCGZNYp70I9K57tfqsm8Pdwxg==}
+  anchor-markdown-header@0.8.4:
+    resolution: {integrity: sha512-20eMBMpts7k5rXAAj67geSqc/tsexHZOZJDWQD214YcDuNtyizDa7Q77sYa5rkao2FwsQP1WKRt2X6mphwmhbg==}
 
   ansi-colors@4.1.3:
     resolution: {integrity: sha512-/6w/C21Pm1A7aZitlI5Ni/2J6FFQN8i1Cvz3kHABAAbw93v/NlvKdVOqz7CCWz/3iv/JplRSEEZ83XION15ovw==}
@@ -1556,8 +1556,8 @@ packages:
     resolution: {integrity: sha512-WkrWp9GR4KXfKGYzOLmTuGVi1UWFfws377n9cc55/tb6DuqyF6pcQ5AbiHEshaDpY9v6oaSr2XCDidGmMwdzIA==}
     engines: {node: '>=8'}
 
-  doctoc@2.4.1:
-    resolution: {integrity: sha512-vDasMUactdtJCpQgeVleLPlSQCB6RORauWJDwNetJDAhMR5uSuw7IGtHX/6k+E1rHCI4rLrPx8dKSznYCNwehA==}
+  doctoc@2.5.0:
+    resolution: {integrity: sha512-xWb2P8mQw9x+T9xPYToytRP0/bA68oexdsY0anMG72RdhZGTVPx6oHJfI57gbZe9LsOSfQUNNLwxSspdoTlJIQ==}
     hasBin: true
 
   doctrine@2.1.0:
@@ -1970,8 +1970,8 @@ packages:
   graceful-fs@4.2.11:
     resolution: {integrity: sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ==}
 
-  happy-dom@20.10.2:
-    resolution: {integrity: sha512-5p9Sxis3eowDJKqx90QCsgbNA02XXqJ59NOHvD4V6cxp+rP4d/xOyVx7uY3hS8hiUbY1VeiFH8lbJ81AyuDVLQ==}
+  happy-dom@20.10.3:
+    resolution: {integrity: sha512-Hjdiy8RziuCcn5z04QI/rlsNuQoG8P0xxjgvsSMpi89cvIXIOcucQtiHS1yHSShxoBcSCeYqAskINmTiy/mlfw==}
     engines: {node: '>=20.0.0'}
 
   has-bigints@1.1.0:
@@ -2447,8 +2447,8 @@ packages:
     resolution: {integrity: sha512-tdt4aFn9QamlhdN3HV2D2ccpBwO5/fyjjbXUxYA6uBjyekMZcZvDq0aSj9t5Jo+tih6AYFnt/cuIRn9013e0Uw==}
     engines: {node: ^22.22.2 || ^24.15.0 || >=26.0.0}
 
-  npm-run-all2@9.0.1:
-    resolution: {integrity: sha512-ZtK8WXZBUA9x0XD6nxYdFLe86FxpkCTq2LiQxzX0LeXQY/vyAigQZXjjj/xfTwgV4Yqe/vYNIq2W09lrHKTcuQ==}
+  npm-run-all2@9.0.2:
+    resolution: {integrity: sha512-+dd4SO2jAlLE06OzmJKzIe6QvvjXezcbmobnh8usR0a8BzQCABTdqTXqVPji0ICOhSQpIIrkGd7IzNl5iDaRSA==}
     engines: {node: ^22.22.2 || ^24.15.0 || >=26.0.0, npm: '>= 10'}
     hasBin: true
 
@@ -2581,9 +2581,9 @@ packages:
     resolution: {integrity: sha512-QP88BAKvMam/3NxH6vj2o21R6MjxZUAd6nlwAS/pnGvN9IVLocLHxGYIzFhg6fUQ+5th6P4dv4eW9jX3DSIj7A==}
     engines: {node: '>=12'}
 
-  pidtree@0.6.0:
-    resolution: {integrity: sha512-eG2dWTVw5bzqGRztnHExczNxt5VGsE6OwTeCG3fdUf9KBsZzO3R5OIIIzWR+iZA0NtZ+RDVdaoE2dK1cn6jH4g==}
-    engines: {node: '>=0.10'}
+  pidtree@1.0.0:
+    resolution: {integrity: sha512-avfAvjB9Dd0wdj3rjJX//yS+G79OO0KrS5pJHFJENjYGX6N4SMgEDBBI/yFy0lloOYSaC6XQxzpOAMPfSYFV/Q==}
+    engines: {node: '>=18'}
     hasBin: true
 
   pify@4.0.1:
@@ -2805,8 +2805,8 @@ packages:
     resolution: {integrity: sha512-7++dFhtcx3353uBaq8DDR4NuxBetBzC7ZQOhmTQInHEd6bSrXdiEyzCvG07Z44UYdLShWUyXt5M/yhz8ekcb1A==}
     engines: {node: '>=8'}
 
-  shell-quote@1.8.3:
-    resolution: {integrity: sha512-ObmnIF4hXNg1BqhnHmgbDETF8dLPCggZWBjkQfhZpbszZnYur5DUljTcCHii5LC3J5E0yeO/1LIMyH+UvHQgyw==}
+  shell-quote@1.8.4:
+    resolution: {integrity: sha512-VsC6n6vz1ihYYyZZwX7YZSF5l5x36ca17OC+a69h94YqB7X6XLwf+5MOgynYir2SLFUbl8gIYvBo8K8RoNQ6bQ==}
     engines: {node: '>= 0.4'}
 
   side-channel-list@1.0.0:
@@ -4000,11 +4000,11 @@ snapshots:
     dependencies:
       '@testing-library/dom': 10.4.1
 
-  '@textlint/ast-node-types@15.5.4': {}
+  '@textlint/ast-node-types@15.7.1': {}
 
-  '@textlint/markdown-to-ast@15.5.4':
+  '@textlint/markdown-to-ast@15.7.1':
     dependencies:
-      '@textlint/ast-node-types': 15.5.4
+      '@textlint/ast-node-types': 15.7.1
       debug: 4.4.3
       mdast-util-gfm-autolink-literal: 0.1.3
       neotraverse: 0.6.18
@@ -4285,7 +4285,7 @@ snapshots:
       obug: 2.1.1
       std-env: 4.0.0
       tinyrainbow: 3.1.0
-      vitest: 4.1.8(@types/node@24.13.2)(@vitest/coverage-v8@4.1.8)(happy-dom@20.10.2)(vite@7.2.7(@types/node@24.13.2))
+      vitest: 4.1.8(@types/node@24.13.2)(@vitest/coverage-v8@4.1.8)(happy-dom@20.10.3)(vite@7.2.7(@types/node@24.13.2))
 
   '@vitest/eslint-plugin@1.6.17(@typescript-eslint/eslint-plugin@8.59.3(@typescript-eslint/parser@8.59.3(eslint@9.39.4)(typescript@6.0.3))(eslint@9.39.4)(typescript@6.0.3))(eslint@9.39.4)(typescript@6.0.3)(vitest@4.1.8)':
     dependencies:
@@ -4295,7 +4295,7 @@ snapshots:
     optionalDependencies:
       '@typescript-eslint/eslint-plugin': 8.59.3(@typescript-eslint/parser@8.59.3(eslint@9.39.4)(typescript@6.0.3))(eslint@9.39.4)(typescript@6.0.3)
       typescript: 6.0.3
-      vitest: 4.1.8(@types/node@24.13.2)(@vitest/coverage-v8@4.1.8)(happy-dom@20.10.2)(vite@7.2.7(@types/node@24.13.2))
+      vitest: 4.1.8(@types/node@24.13.2)(@vitest/coverage-v8@4.1.8)(happy-dom@20.10.3)(vite@7.2.7(@types/node@24.13.2))
     transitivePeerDependencies:
       - supports-color
 
@@ -4377,7 +4377,7 @@ snapshots:
       json-schema-traverse: 0.4.1
       uri-js: 4.4.1
 
-  anchor-markdown-header@0.8.3:
+  anchor-markdown-header@0.8.4:
     dependencies:
       emoji-regex: 10.6.0
       remove-markdown: 0.6.3
@@ -4554,7 +4554,7 @@ snapshots:
 
   buffer-image-size@0.6.4:
     dependencies:
-      '@types/node': 24.13.1
+      '@types/node': 24.13.2
 
   cac@7.0.0: {}
 
@@ -4675,10 +4675,10 @@ snapshots:
     dependencies:
       path-type: 4.0.0
 
-  doctoc@2.4.1:
+  doctoc@2.5.0:
     dependencies:
-      '@textlint/markdown-to-ast': 15.5.4
-      anchor-markdown-header: 0.8.3
+      '@textlint/markdown-to-ast': 15.7.1
+      anchor-markdown-header: 0.8.4
       htmlparser2: 7.2.0
       loglevel: 1.9.2
       minimist: 1.2.8
@@ -5237,9 +5237,9 @@ snapshots:
 
   graceful-fs@4.2.11: {}
 
-  happy-dom@20.10.2:
+  happy-dom@20.10.3:
     dependencies:
-      '@types/node': 24.13.1
+      '@types/node': 24.13.2
       '@types/whatwg-mimetype': 3.0.2
       '@types/ws': 8.18.1
       buffer-image-size: 0.6.4
@@ -5738,15 +5738,15 @@ snapshots:
 
   npm-normalize-package-bin@6.0.0: {}
 
-  npm-run-all2@9.0.1:
+  npm-run-all2@9.0.2:
     dependencies:
       ansi-styles: 6.2.3
       cross-spawn: 7.0.6
       memorystream: 0.3.1
       picomatch: 4.0.4
-      pidtree: 0.6.0
+      pidtree: 1.0.0
       read-package-json-fast: 6.0.0
-      shell-quote: 1.8.3
+      shell-quote: 1.8.4
       which: 7.0.0
 
   object-assign@4.1.1: {}
@@ -5892,7 +5892,7 @@ snapshots:
 
   picomatch@4.0.4: {}
 
-  pidtree@0.6.0: {}
+  pidtree@1.0.0: {}
 
   pify@4.0.1: {}
 
@@ -6168,7 +6168,7 @@ snapshots:
 
   shebang-regex@3.0.0: {}
 
-  shell-quote@1.8.3: {}
+  shell-quote@1.8.4: {}
 
   side-channel-list@1.0.0:
     dependencies:
@@ -6510,12 +6510,12 @@ snapshots:
       picomatch: 4.0.4
       postcss: 8.5.8
       rollup: 4.60.0
-      tinyglobby: 0.2.15
+      tinyglobby: 0.2.17
     optionalDependencies:
       '@types/node': 24.13.2
       fsevents: 2.3.3
 
-  vitest@4.1.8(@types/node@24.13.2)(@vitest/coverage-v8@4.1.8)(happy-dom@20.10.2)(vite@7.2.7(@types/node@24.13.2)):
+  vitest@4.1.8(@types/node@24.13.2)(@vitest/coverage-v8@4.1.8)(happy-dom@20.10.3)(vite@7.2.7(@types/node@24.13.2)):
     dependencies:
       '@vitest/expect': 4.1.8
       '@vitest/mocker': 4.1.8(vite@7.2.7(@types/node@24.13.2))
@@ -6540,7 +6540,7 @@ snapshots:
     optionalDependencies:
       '@types/node': 24.13.2
       '@vitest/coverage-v8': 4.1.8(vitest@4.1.8)
-      happy-dom: 20.10.2
+      happy-dom: 20.10.3
     transitivePeerDependencies:
       - msw
 
