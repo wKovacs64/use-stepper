@@ -43,7 +43,7 @@
     "access": "public"
   },
   "scripts": {
-    "build": "tsup ./src/use-stepper.ts --format cjs,esm --dts --sourcemap --clean",
+    "build": "tsdown ./src/use-stepper.ts --format cjs,esm --dts --sourcemap --clean",
     "changeset": "changeset",
     "changeset:version": "changeset version && pnpm install",
     "changeset:publish": "changeset publish",
@@ -81,8 +81,8 @@
     "react-dom": "19.2.7",
     "react-test-renderer": "19.2.7",
     "rimraf": "6.1.3",
-    "tsup": "8.5.1",
-    "typescript": "5.9.3",
+    "tsdown": "0.22.2",
+    "typescript": "6.0.3",
     "vitest": "4.1.8"
   },
   "peerDependencies": {
