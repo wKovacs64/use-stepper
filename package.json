@@ -70,7 +70,7 @@
     "@types/react-dom": "19.2.3",
     "@types/ws": "8.18.1",
     "@vitest/coverage-v8": "4.1.10",
-    "@wkovacs64/eslint-config": "7.14.1",
+    "@wkovacs64/eslint-config": "8.0.1",
     "cross-env": "10.1.0",
     "doctoc": "2.5.0",
     "eslint": "9.39.5",
