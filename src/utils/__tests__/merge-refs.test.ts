@@ -16,7 +16,7 @@ describe("mergeRefs", () => {
   it("merges React ref objects and function refs", () => {
     const input = React.createElement("input", { type: "text" });
     const ref1 = React.createRef();
-    const ref2 = vi.fn();
+    const ref2 = vi.fn<(instance: unknown) => void>();
 
     mergeRefs(ref1, ref2)(input);
 
@@ -29,6 +29,6 @@ describe("mergeRefs", () => {
     const ref1 = null;
     const ref2 = {};
 
-    mergeRefs(ref1, ref2 as React.MutableRefObject<unknown>)(input);
+    expect(() => mergeRefs(ref1, ref2 as React.MutableRefObject<unknown>)(input)).not.toThrow();
   });
 });

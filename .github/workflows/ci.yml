@@ -36,7 +36,7 @@ jobs:
         run: pnpm run format:check
 
   lint:
-    name: ⬣ ESLint
+    name: 🐂 Oxlint
     runs-on: ubuntu-latest
     steps:
       - name: ⬇️ Checkout repo
@@ -54,7 +54,7 @@ jobs:
       - name: 📥 Install deps
         run: pnpm install
 
-      - name: 🔬 Lint
+      - name: 🐂 Oxlint
         run: pnpm run lint
 
   typecheck:
