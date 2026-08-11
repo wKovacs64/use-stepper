@@ -54,7 +54,7 @@ jobs:
       - name: 📥 Install deps
         run: pnpm install
 
-      - name: 🐂 Oxlint
+      - name: 🔬 Lint
         run: pnpm run lint
 
   typecheck:
