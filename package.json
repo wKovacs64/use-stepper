@@ -58,7 +58,6 @@
     "test:watch": "vitest watch",
     "typecheck": "tsc"
   },
-  "dependencies": {},
   "devDependencies": {
     "@changesets/changelog-github": "1.0.0",
     "@changesets/cli": "3.0.1",
@@ -71,13 +70,13 @@
     "@types/react-dom": "19.2.5",
     "@types/ws": "8.18.1",
     "@vitest/coverage-v8": "4.1.11",
-    "@wkovacs64/oxlint-config": "0.1.0",
+    "@wkovacs64/oxlint-config": "0.2.1",
     "cross-env": "10.1.0",
     "doctoc": "2.5.0",
     "happy-dom": "20.11.8",
     "npm-run-all2": "9.0.3",
     "oxfmt": "0.65.0",
-    "oxlint": "1.78.0",
+    "oxlint": "1.79.0",
     "oxlint-tsgolint": "7.0.2001",
     "react": "19.2.8",
     "react-dom": "19.2.8",
