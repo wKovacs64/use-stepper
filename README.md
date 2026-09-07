@@ -4,6 +4,10 @@ _React hook to manage a numeric stepper/spinbutton_
 
 [![npm Version][npm-image]][npm-url] [![Build Status][ci-image]][ci-url]
 
+<!-- prettier-ignore -->
+> [!IMPORTANT]
+> This project is no longer maintained. Consider [React Aria’s useNumberField](https://react-spectrum.adobe.com/react-aria/useNumberField.html) or [Zag’s Number Input](https://zagjs.com/components/react/number-input) as alternatives.
+
 ## The problem
 
 A numeric stepper or "spinbutton" (decrement button, input, increment button) is deceptively
